@@ -1,0 +1,423 @@
+import logging
+import os
+from typing import Optional
+
+import aiosqlite
+from dotenv import load_dotenv
+
+from aiogram import Bot, Dispatcher, F
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
+from aiogram.filters import Command, CommandStart
+from aiogram.fsm.context import FSMContext
+from aiogram.fsm.state import State, StatesGroup
+from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.types import (
+    BotCommand,
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    KeyboardButton,
+    Message,
+    ReplyKeyboardMarkup,
+)
+
+# Загрузка токена из .env
+load_dotenv()
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8817629404:AAE27y3rlP4zUl_z2WrDxYVtVKj9sP0RZAs")
+DB_NAME = "flashcards.db"
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - [%(levelname)s] - %(name)s: %(message)s")
+logger = logging.getLogger(__name__)
+
+bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+dp = Dispatcher(storage=MemoryStorage())
+
+
+# ==============================================================================
+# 1. АСИНХРОННАЯ БАЗА ДАННЫХ (aiosqlite)
+# ==============================================================================
+
+async def init_db():
+    """Создание таблиц и индексов с привязкой к user_id."""
+    async with aiosqlite.connect(DB_NAME) as db:
+        await db.execute('''
+            CREATE TABLE IF NOT EXISTS cards (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                deck TEXT DEFAULT 'Общая',
+                question TEXT NOT NULL,
+                answer TEXT NOT NULL,
+                photo_id TEXT,
+                review_count INTEGER DEFAULT 0,
+                success_count INTEGER DEFAULT 0,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        await db.execute('CREATE INDEX IF NOT EXISTS idx_user_cards ON cards(user_id, deck)')
+        await db.commit()
+    logger.info("База данных инициализирована.")
+
+
+async def add_card_to_db(user_id: int, question: str, answer: str, photo_id: Optional[str] = None):
+    async with aiosqlite.connect(DB_NAME) as db:
+        await db.execute(
+            "INSERT INTO cards (user_id, question, answer, photo_id) VALUES (?, ?, ?, ?)",
+            (user_id, question, answer, photo_id)
+        )
+        await db.commit()
+
+
+async def get_random_card_for_user(user_id: int):
+    async with aiosqlite.connect(DB_NAME) as db:
+        db.row_factory = aiosqlite.Row
+        cursor = await db.execute(
+            "SELECT * FROM cards WHERE user_id = ? ORDER BY RANDOM() LIMIT 1",
+            (user_id,)
+        )
+        return await cursor.fetchone()
+
+
+async def get_card_by_id(card_id: int, user_id: int):
+    async with aiosqlite.connect(DB_NAME) as db:
+        db.row_factory = aiosqlite.Row
+        cursor = await db.execute("SELECT * FROM cards WHERE id = ? AND user_id = ?", (card_id, user_id))
+        return await cursor.fetchone()
+
+
+async def update_card_stats(card_id: int, user_id: int, remembered: bool):
+    async with aiosqlite.connect(DB_NAME) as db:
+        if remembered:
+            await db.execute(
+                "UPDATE cards SET review_count = review_count + 1, success_count = success_count + 1 WHERE id = ? AND user_id = ?",
+                (card_id, user_id)
+            )
+        else:
+            await db.execute(
+                "UPDATE cards SET review_count = review_count + 1 WHERE id = ? AND user_id = ?",
+                (card_id, user_id)
+            )
+        await db.commit()
+
+
+async def delete_card_from_db(card_id: int, user_id: int) -> bool:
+    async with aiosqlite.connect(DB_NAME) as db:
+        cursor = await db.execute("DELETE FROM cards WHERE id = ? AND user_id = ?", (card_id, user_id))
+        await db.commit()
+        return cursor.rowcount > 0
+
+
+async def get_user_statistics(user_id: int):
+    async with aiosqlite.connect(DB_NAME) as db:
+        cursor = await db.execute(
+            "SELECT COUNT(*), COALESCE(SUM(review_count), 0), COALESCE(SUM(success_count), 0) FROM cards WHERE user_id = ?",
+            (user_id,)
+        )
+        return await cursor.fetchone()
+
+
+# ==============================================================================
+# 2. КЛАВИАТУРЫ И МЕНЮ
+# ==============================================================================
+
+def get_main_menu() -> ReplyKeyboardMarkup:
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="📚 Учить карточки"), KeyboardButton(text="➕ Добавить карточку")],
+            [KeyboardButton(text="📊 Моя статистика"), KeyboardButton(text="🗂 Мои колоды")],
+            [KeyboardButton(text="❓ Помощь")]
+        ],
+        resize_keyboard=True,
+        is_persistent=True
+    )
+
+
+def get_cancel_keyboard() -> ReplyKeyboardMarkup:
+    return ReplyKeyboardMarkup(
+        keyboard=[[KeyboardButton(text="❌ Отмена")]],
+        resize_keyboard=True,
+        one_time_keyboard=True
+    )
+
+
+def get_photo_keyboard() -> ReplyKeyboardMarkup:
+    return ReplyKeyboardMarkup(
+        keyboard=[[KeyboardButton(text="⏩ Без фото")], [KeyboardButton(text="❌ Отмена")]],
+        resize_keyboard=True
+    )
+
+
+def get_card_front_keyboard(card_id: int) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="🔄 Показать ответ", callback_data=f"flip_{card_id}")],
+        [
+            InlineKeyboardButton(text="⏩ Другая", callback_data="next_card"),
+            InlineKeyboardButton(text="🗑 Удалить", callback_data=f"ask_del_{card_id}")
+        ]
+    ])
+
+
+def get_card_back_keyboard(card_id: int) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text="✅ Знаю (+1)", callback_data=f"rate_yes_{card_id}"),
+            InlineKeyboardButton(text="❌ Не помню", callback_data=f"rate_no_{card_id}")
+        ],
+        [
+            InlineKeyboardButton(text="➡️ Следующая", callback_data="next_card"),
+            InlineKeyboardButton(text="🗑 Удалить", callback_data=f"ask_del_{card_id}")
+        ]
+    ])
+
+
+def get_delete_confirm_keyboard(card_id: int) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text="⚠️ Да, удалить", callback_data=f"confirm_del_{card_id}"),
+            InlineKeyboardButton(text="↩️ Оставить", callback_data=f"cancel_del_{card_id}")
+        ]
+    ])
+
+
+# ==============================================================================
+# 3. FSM (ДОБАВЛЕНИЕ КАРТОЧКИ)
+# ==============================================================================
+
+class AddCardState(StatesGroup):
+    question = State()
+    answer = State()
+    photo = State()
+
+
+@dp.message(Command("cancel"))
+@dp.message(F.text == "❌ Отмена")
+async def cmd_cancel(message: Message, state: FSMContext):
+    current_state = await state.get_state()
+    if current_state is None:
+        await message.answer("Нет активных действий.", reply_markup=get_main_menu())
+        return
+    await state.clear()
+    await message.answer("❌ Добавление карточки отменено.", reply_markup=get_main_menu())
+
+
+@dp.message(CommandStart())
+async def cmd_start(message: Message):
+    user_name = html.escape(message.from_user.first_name)
+    await message.answer(
+        f"👋 Привет, <b>{user_name}</b>!\n\n"
+        f"Я бот для изучения материала по флеш-картам 🧠\n\n"
+        f"Используйте постоянное меню кнопок внизу для удобного управления!",
+        reply_markup=get_main_menu()
+    )
+
+
+@dp.message(Command("help"))
+@dp.message(F.text == "❓ Помощь")
+async def cmd_help(message: Message):
+    await message.answer(
+        "📖 <b>Как пользоваться ботом:</b>\n\n"
+        "1. Нажмите <b>«➕ Добавить карточку»</b> для сохранения вопроса и ответа.\n"
+        "2. Нажмите <b>«📚 Учить карточки»</b> для тренировки.\n"
+        "3. Нажмите <b>«🔄 Показать ответ»</b>, затем оцените себя: <b>«✅ Знаю»</b> или <b>«❌ Не помню»</b>.\n"
+        "4. Команда /cancel или кнопка <b>«❌ Отмена»</b> сбросит текущее действие.",
+        reply_markup=get_main_menu()
+    )
+
+
+@dp.message(Command("stats"))
+@dp.message(F.text == "📊 Моя статистика")
+async def cmd_stats(message: Message):
+    total_cards, total_reviews, total_success = await get_user_statistics(message.from_user.id)
+    if total_cards == 0:
+        await message.answer("📭 У вас пока нет карточек. Добавьте первую через <b>«➕ Добавить карточку»</b>!")
+        return
+
+    accuracy = (total_success / total_reviews * 100) if total_reviews > 0 else 0
+    await message.answer(
+        f"📊 <b>Ваша статистика:</b>\n\n"
+        f"🃏 Всего карточек: <b>{total_cards}</b>\n"
+        f"🔄 Пройдено повторений: <b>{total_reviews}</b>\n"
+        f"✅ Успешных ответов: <b>{total_success}</b>\n"
+        f"🎯 Точность: <b>{accuracy:.1f}%</b>",
+        reply_markup=get_main_menu()
+    )
+
+
+@dp.message(F.text == "🗂 Мои колоды")
+async def cmd_decks(message: Message):
+    total_cards, _, _ = await get_user_statistics(message.from_user.id)
+    await message.answer(f"🗂 В вашей активной колоде <b>«Общая»</b>: <b>{total_cards}</b> карточек.")
+
+
+# Шаг 1: Вопрос
+@dp.message(Command("add"))
+@dp.message(F.text == "➕ Добавить карточку")
+async def add_start(message: Message, state: FSMContext):
+    await state.set_state(AddCardState.question)
+    await message.answer("📝 Введите <b>вопрос или термин</b> (лицевая сторона):", reply_markup=get_cancel_keyboard())
+
+
+@dp.message(AddCardState.question)
+async def add_question(message: Message, state: FSMContext):
+    await state.update_data(question=message.text.strip())
+    await state.set_state(AddCardState.answer)
+    await message.answer("💡 Теперь введите <b>ответ или определение</b> (обратная сторона):", reply_markup=get_cancel_keyboard())
+
+
+# Шаг 2: Ответ
+@dp.message(AddCardState.answer)
+async def add_answer(message: Message, state: FSMContext):
+    await state.update_data(answer=message.text.strip())
+    await state.set_state(AddCardState.photo)
+    await message.answer("📷 Отправьте <b>фотографию</b> или нажмите <b>«⏩ Без фото»</b>:", reply_markup=get_photo_keyboard())
+
+
+# Шаг 3: Фото и сохранение
+@dp.message(AddCardState.photo, F.photo)
+async def add_photo(message: Message, state: FSMContext):
+    data = await state.get_data()
+    photo_id = message.photo[-1].file_id
+    await add_card_to_db(message.from_user.id, data['question'], data['answer'], photo_id)
+    await state.clear()
+    await message.answer("🎉 <b>Карточка с фото успешно сохранена!</b>", reply_markup=get_main_menu())
+
+
+@dp.message(AddCardState.photo, F.text.in_({"⏩ Без фото", "-", "нет", "no", "skip"}))
+async def add_photo_skip(message: Message, state: FSMContext):
+    data = await state.get_data()
+    await add_card_to_db(message.from_user.id, data['question'], data['answer'], None)
+    await state.clear()
+    await message.answer("🎉 <b>Карточка успешно сохранена!</b>", reply_markup=get_main_menu())
+
+
+# ==============================================================================
+# 4. РЕЖИМ ОБУЧЕНИЯ
+# ==============================================================================
+
+async def render_card(chat_id: int, card, show_answer: bool = False, message_to_edit: Optional[Message] = None):
+    card_id = card["id"]
+    q_text = html.escape(card["question"])
+    photo_id = card["photo_id"]
+
+    if not show_answer:
+        text = f"❓ <b>Вопрос:</b>\n{q_text}"
+        markup = get_card_front_keyboard(card_id)
+    else:
+        a_text = html.escape(card["answer"])
+        text = f"❓ <b>Вопрос:</b>\n{q_text}\n\n💡 <b>Ответ:</b>\n{a_text}"
+        markup = get_card_back_keyboard(card_id)
+
+    if message_to_edit:
+        try:
+            if photo_id:
+                await message_to_edit.edit_caption(caption=text, reply_markup=markup)
+            else:
+                await message_to_edit.edit_text(text=text, reply_markup=markup)
+            return
+        except Exception:
+            pass
+
+    if photo_id:
+        await bot.send_photo(chat_id, photo=photo_id, caption=text, reply_markup=markup)
+    else:
+        await bot.send_message(chat_id, text=text, reply_markup=markup)
+
+
+async def send_random_card(chat_id: int, user_id: int):
+    card = await get_random_card_for_user(user_id)
+    if not card:
+        await bot.send_message(
+            chat_id,
+            "📭 <b>В вашей колоде пока нет карточек!</b>\nДобавьте их кнопкой <b>«➕ Добавить карточку»</b>.",
+            reply_markup=get_main_menu()
+        )
+        return
+    await render_card(chat_id, card, show_answer=False)
+
+
+@dp.message(Command("study"))
+@dp.message(F.text == "📚 Учить карточки")
+async def cmd_study(message: Message):
+    await send_random_card(message.chat.id, message.from_user.id)
+
+
+@dp.callback_query(F.data.startswith("flip_"))
+async def flip_card(callback: CallbackQuery):
+    card_id = int(callback.data.split("_")[1])
+    card = await get_card_by_id(card_id, callback.from_user.id)
+    if card:
+        await render_card(callback.message.chat.id, card, show_answer=True, message_to_edit=callback.message)
+    await callback.answer()
+
+
+@dp.callback_query(F.data.startswith("rate_"))
+async def rate_card(callback: CallbackQuery):
+    _, action, card_id_str = callback.data.split("_")
+    await update_card_stats(int(card_id_str), callback.from_user.id, action == "yes")
+    await callback.answer("Ответ записан!" if action == "yes" else "Повторим позже")
+    try:
+        await callback.message.delete()
+    except Exception:
+        pass
+    await send_random_card(callback.message.chat.id, callback.from_user.id)
+
+
+@dp.callback_query(F.data == "next_card")
+async def next_card(callback: CallbackQuery):
+    try:
+        await callback.message.delete()
+    except Exception:
+        pass
+    await send_random_card(callback.message.chat.id, callback.from_user.id)
+    await callback.answer()
+
+
+# Защита от случайного удаления
+@dp.callback_query(F.data.startswith("ask_del_"))
+async def ask_delete(callback: CallbackQuery):
+    card_id = int(callback.data.split("_")[2])
+    await callback.message.edit_reply_markup(reply_markup=get_delete_confirm_keyboard(card_id))
+    await callback.answer("Подтвердите удаление")
+
+
+@dp.callback_query(F.data.startswith("cancel_del_"))
+async def cancel_delete(callback: CallbackQuery):
+    card_id = int(callback.data.split("_")[2])
+    is_answer = callback.message.text and "Ответ:" in callback.message.text
+    markup = get_card_back_keyboard(card_id) if is_answer else get_card_front_keyboard(card_id)
+    await callback.message.edit_reply_markup(reply_markup=markup)
+    await callback.answer("Удаление отменено")
+
+
+@dp.callback_query(F.data.startswith("confirm_del_"))
+async def confirm_delete(callback: CallbackQuery):
+    card_id = int(callback.data.split("_")[2])
+    await delete_card_from_db(card_id, callback.from_user.id)
+    try:
+        await callback.message.delete()
+    except Exception:
+        pass
+    await callback.answer("🗑 Карточка удалена!")
+    await send_random_card(callback.message.chat.id, callback.from_user.id)
+
+
+# ==============================================================================
+# 5. ЗАПУСК И СИСТЕМНОЕ МЕНЮ
+# ==============================================================================
+
+async def main():
+    await init_db()
+    # Регистрация подсказок команд в левом нижнем меню Telegram
+    await bot.set_my_commands([
+        BotCommand(command="study", description="📚 Начать тренировку"),
+        BotCommand(command="add", description="➕ Добавить карточку"),
+        BotCommand(command="stats", description="📊 Моя статистика"),
+        BotCommand(command="cancel", description="❌ Отмена действия"),
+        BotCommand(command="help", description="❓ Справка"),
+    ])
+    logger.info("Бот запущен!")
+    await dp.start_polling(bot)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
