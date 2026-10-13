@@ -1,5 +1,13 @@
 name: Run Telegram bot (temporary)
 on:
+  push:
+    branches: [main]
+    paths:
+      - bot.py
+      - bot_single.py
+      - questions.txt
+      - requirements.txt
+      - .github/workflows/run-bot.yml
   workflow_dispatch:
 permissions:
   contents: read
