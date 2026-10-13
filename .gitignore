@@ -1,0 +1,5 @@
+.env
+progress.sqlite3*
+__pycache__/
+.venv/
+runtime/

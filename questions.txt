@@ -1,0 +1,4165 @@
+[
+  {
+    "id": 1,
+    "page": 4,
+    "page_end": 4,
+    "question": "СТРУКТУРНОЙ ЕДИНИЦЕЙ КОСТИ ЯВЛЯЕТСЯ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Оссеин"
+      },
+      {
+        "label": "б",
+        "text": "Остеон"
+      },
+      {
+        "label": "в",
+        "text": "Красный костный мозг"
+      },
+      {
+        "label": "г",
+        "text": "Остеоцит"
+      }
+    ],
+    "options": {
+      "а": "Оссеин",
+      "б": "Остеон",
+      "в": "Красный костный мозг",
+      "г": "Остеоцит"
+    },
+    "correct": [
+      "б"
+    ],
+    "source_key": "б",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 1,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 2,
+    "page": 4,
+    "page_end": 4,
+    "question": "НАЗОВИТЕ ЧАСТЬ КРЕСТЦА, НА КОТОРОЙ НАХОДИТСЯ FACIES AURICULARIS:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Facies dorsalis"
+      },
+      {
+        "label": "б",
+        "text": "Basis ossis sacri"
+      },
+      {
+        "label": "в",
+        "text": "Pars lateralis"
+      },
+      {
+        "label": "г",
+        "text": "Facies pelvina"
+      }
+    ],
+    "options": {
+      "а": "Facies dorsalis",
+      "б": "Basis ossis sacri",
+      "в": "Pars lateralis",
+      "г": "Facies pelvina"
+    },
+    "correct": [
+      "в"
+    ],
+    "source_key": "в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 2,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 3,
+    "page": 4,
+    "page_end": 4,
+    "question": "УКАЖИТЕ МЕСТО НА ПЕРВОМ РЕБРЕ, ГДЕ ПРОХОДИТ SULCUS ARTERIAE SUBCLAVIAE:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Впереди от бугорка ребра"
+      },
+      {
+        "label": "б",
+        "text": "Позади от бугорка передней лестничной мышцы"
+      },
+      {
+        "label": "в",
+        "text": "Впереди от бугорка передней лестничной мышцы"
+      },
+      {
+        "label": "г",
+        "text": "На бугорке ребра"
+      }
+    ],
+    "options": {
+      "а": "Впереди от бугорка ребра",
+      "б": "Позади от бугорка передней лестничной мышцы",
+      "в": "Впереди от бугорка передней лестничной мышцы",
+      "г": "На бугорке ребра"
+    },
+    "correct": [
+      "б"
+    ],
+    "source_key": "б",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 3,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 4,
+    "page": 4,
+    "page_end": 4,
+    "question": "УКАЖИТЕ МЕСТО РАСПОЛОЖЕНИЯ АNGULUS STERNI",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Место соединения рукоятки с телом"
+      },
+      {
+        "label": "б",
+        "text": "Место соединения тела с мечевидным отростком"
+      },
+      {
+        "label": "в",
+        "text": "На уровне середины тела"
+      },
+      {
+        "label": "г",
+        "text": "На уровне яремной вырезки гpудины"
+      }
+    ],
+    "options": {
+      "а": "Место соединения рукоятки с телом",
+      "б": "Место соединения тела с мечевидным отростком",
+      "в": "На уровне середины тела",
+      "г": "На уровне яремной вырезки гpудины"
+    },
+    "correct": [
+      "а"
+    ],
+    "source_key": "а",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 4,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 5,
+    "page": 4,
+    "page_end": 4,
+    "question": "АНАТОМИЧЕСКОЕ ОБРАЗОВАНИЕ, РАЗДЕЛЯЮЩЕЕ БОЛЬШУЮ И МАЛУЮ СЕДАЛИЩНЫЕ ВЫРЕЗКИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Tuber ischiadicum"
+      },
+      {
+        "label": "б",
+        "text": "Tuberculum pubicum"
+      },
+      {
+        "label": "в",
+        "text": "Spina iliaca posterior inferior"
+      },
+      {
+        "label": "г",
+        "text": "Spina ischiadica"
+      }
+    ],
+    "options": {
+      "а": "Tuber ischiadicum",
+      "б": "Tuberculum pubicum",
+      "в": "Spina iliaca posterior inferior",
+      "г": "Spina ischiadica"
+    },
+    "correct": [
+      "г"
+    ],
+    "source_key": "г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 5,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 6,
+    "page": 4,
+    "page_end": 4,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, ПРИМЫКАЮЩИЕ К ТУРЕЦКОМУ СЕДЛУ СБОКУ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Fossa hypophysialis"
+      },
+      {
+        "label": "б",
+        "text": "Canalis opticus"
+      },
+      {
+        "label": "в",
+        "text": "Sulcus caroticus"
+      },
+      {
+        "label": "г",
+        "text": "Processus clinoidei posteriores"
+      }
+    ],
+    "options": {
+      "а": "Fossa hypophysialis",
+      "б": "Canalis opticus",
+      "в": "Sulcus caroticus",
+      "г": "Processus clinoidei posteriores"
+    },
+    "correct": [
+      "в"
+    ],
+    "source_key": "в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 6,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 7,
+    "page": 4,
+    "page_end": 4,
+    "question": "УКАЖИТЕ КУДА ОТКРЫВАЕТСЯ APERTURA SINUS SPHENOIDALIS:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Meatus nasi medius"
+      },
+      {
+        "label": "б",
+        "text": "Meatus nasi superior"
+      },
+      {
+        "label": "в",
+        "text": "Fossa pterygopalatina"
+      },
+      {
+        "label": "г",
+        "text": "Fossa cranii media"
+      }
+    ],
+    "options": {
+      "а": "Meatus nasi medius",
+      "б": "Meatus nasi superior",
+      "в": "Fossa pterygopalatina",
+      "г": "Fossa cranii media"
+    },
+    "correct": [
+      "б"
+    ],
+    "source_key": "б",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 7,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 8,
+    "page": 4,
+    "page_end": 4,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКОЕ ОБРАЗОВАНИЕ, В КОТОРОЕ ОТКРЫВАЮТСЯ ПЕРЕДНИЕ И СРЕДНИЕ ЯЧЕЙКИ РЕШЕТЧАТОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Orbita"
+      },
+      {
+        "label": "б",
+        "text": "Meatus nasi communis"
+      },
+      {
+        "label": "в",
+        "text": "Fossa cranii anterior"
+      },
+      {
+        "label": "г",
+        "text": "Meatus nasi medius"
+      }
+    ],
+    "options": {
+      "а": "Orbita",
+      "б": "Meatus nasi communis",
+      "в": "Fossa cranii anterior",
+      "г": "Meatus nasi medius"
+    },
+    "correct": [
+      "г"
+    ],
+    "source_key": "г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 8,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 9,
+    "page": 5,
+    "page_end": 5,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ВЕРХУШКЕ ПИРАМИДЫ ВИСОЧНОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Apertura externa canalis carotici"
+      },
+      {
+        "label": "б",
+        "text": "Porus acusticus internus"
+      },
+      {
+        "label": "в",
+        "text": "Apertura interna canalis carotici"
+      },
+      {
+        "label": "г",
+        "text": "Canalis pterygoideus"
+      }
+    ],
+    "options": {
+      "а": "Apertura externa canalis carotici",
+      "б": "Porus acusticus internus",
+      "в": "Apertura interna canalis carotici",
+      "г": "Canalis pterygoideus"
+    },
+    "correct": [
+      "в"
+    ],
+    "source_key": "в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 9,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 10,
+    "page": 5,
+    "page_end": 5,
+    "question": "УКАЖИТЕ ВЫХОДНОЕ ОТВЕРСТИЕ САNАLIS NЕRVI FACIALIS",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Hiatus canalis nervi petrosi majores"
+      },
+      {
+        "label": "б",
+        "text": "Porus acusticus internus"
+      },
+      {
+        "label": "в",
+        "text": "Foramen stylomastoideum"
+      },
+      {
+        "label": "г",
+        "text": "Fissura petrosquamosa"
+      }
+    ],
+    "options": {
+      "а": "Hiatus canalis nervi petrosi majores",
+      "б": "Porus acusticus internus",
+      "в": "Foramen stylomastoideum",
+      "г": "Fissura petrosquamosa"
+    },
+    "correct": [
+      "в"
+    ],
+    "source_key": "в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 10,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 11,
+    "page": 5,
+    "page_end": 5,
+    "question": "НАЗОВИТЕ ОТВЕРСТИЕ, СООБЩАЮЩЕЕ КРЫЛОВИДНОНЁБНУЮ ЯМКУ С ПОЛОСТЬЮ НОСА:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Foramen rotundum"
+      },
+      {
+        "label": "б",
+        "text": "Foramen sphenopalatinum"
+      },
+      {
+        "label": "в",
+        "text": "Foгamen ovale"
+      },
+      {
+        "label": "г",
+        "text": "Fissura pterygomaxillaris"
+      }
+    ],
+    "options": {
+      "а": "Foramen rotundum",
+      "б": "Foramen sphenopalatinum",
+      "в": "Foгamen ovale",
+      "г": "Fissura pterygomaxillaris"
+    },
+    "correct": [
+      "б"
+    ],
+    "source_key": "б",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 11,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 12,
+    "page": 5,
+    "page_end": 5,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКОЕ ОБРАЗОВАНИЕ, СООБЩАЮЩЕЕ КРЫЛОВИДНОНЁБНУЮ ЯМКУ С ПОЛОСТЬЮ РТА:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Foramen sphenopalatinum"
+      },
+      {
+        "label": "б",
+        "text": "Саnаlis pterygoideus"
+      },
+      {
+        "label": "в",
+        "text": "Foramen rotundum"
+      },
+      {
+        "label": "г",
+        "text": "Canalis palatinus major"
+      }
+    ],
+    "options": {
+      "а": "Foramen sphenopalatinum",
+      "б": "Саnаlis pterygoideus",
+      "в": "Foramen rotundum",
+      "г": "Canalis palatinus major"
+    },
+    "correct": [
+      "г"
+    ],
+    "source_key": "г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 12,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 13,
+    "page": 5,
+    "page_end": 5,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, СООБЩАЮЩИЕ КРЫЛОВИДНОНЁБНУЮ ЯМКУ СО СРЕДНЕЙ ЧЕРЕПНОЙ ЯМКОЙ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Foramen rotundum"
+      },
+      {
+        "label": "б",
+        "text": "Canalis palatinus major"
+      },
+      {
+        "label": "в",
+        "text": "Canalis pterygoideus"
+      },
+      {
+        "label": "г",
+        "text": "Fоrаmеn sphenopalatinum"
+      }
+    ],
+    "options": {
+      "а": "Foramen rotundum",
+      "б": "Canalis palatinus major",
+      "в": "Canalis pterygoideus",
+      "г": "Fоrаmеn sphenopalatinum"
+    },
+    "correct": [
+      "а"
+    ],
+    "source_key": "а",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 13,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 633,
+    "page": 72,
+    "page_end": 72,
+    "question": "ОСНОВНЫЕ ФУНКЦИИ СКЕЛЕТА ЧЕЛОВЕКА ЗАКЛЮЧАЮТСЯ В:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Депо минеральных веществ"
+      },
+      {
+        "label": "б",
+        "text": "Опорная"
+      },
+      {
+        "label": "в",
+        "text": "Защитная"
+      },
+      {
+        "label": "г",
+        "text": "Локомоторная"
+      }
+    ],
+    "options": {
+      "а": "Депо минеральных веществ",
+      "б": "Опорная",
+      "в": "Защитная",
+      "г": "Локомоторная"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 633,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 634,
+    "page": 72,
+    "page_end": 72,
+    "question": "УКАЖИТЕ СОСТАВНЫЕ ЧАСТИ ПОЗВОНКОВ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Processus articularis"
+      },
+      {
+        "label": "б",
+        "text": "Arcus"
+      },
+      {
+        "label": "в",
+        "text": "Processus coronoideus"
+      },
+      {
+        "label": "г",
+        "text": "Corpus"
+      }
+    ],
+    "options": {
+      "а": "Processus articularis",
+      "б": "Arcus",
+      "в": "Processus coronoideus",
+      "г": "Corpus"
+    },
+    "correct": [
+      "а",
+      "б",
+      "г"
+    ],
+    "source_key": "а,б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 634,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 635,
+    "page": 72,
+    "page_end": 72,
+    "question": "УКАЖИТЕ, КАКИЕ ОТРОСТКИ ИМЕЮТ ПОЗВОНКИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Processus styloideus"
+      },
+      {
+        "label": "б",
+        "text": "Processus sрinоsus"
+      },
+      {
+        "label": "в",
+        "text": "Processus articularis superior"
+      },
+      {
+        "label": "г",
+        "text": "Processus transversus"
+      }
+    ],
+    "options": {
+      "а": "Processus styloideus",
+      "б": "Processus sрinоsus",
+      "в": "Processus articularis superior",
+      "г": "Processus transversus"
+    },
+    "correct": [
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 635,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 636,
+    "page": 72,
+    "page_end": 72,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, ХАРАКТЕРНЫЕ ДЛЯ ТИПИЧНЫХ ШЕЙНЫХ ПОЗВОНКОВ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Foramen processus transversus"
+      },
+      {
+        "label": "б",
+        "text": "Tuberculum caroticum"
+      },
+      {
+        "label": "в",
+        "text": "Processus spinosus (раздвоенный на конце)"
+      },
+      {
+        "label": "г",
+        "text": "Processus mamillaris"
+      }
+    ],
+    "options": {
+      "а": "Foramen processus transversus",
+      "б": "Tuberculum caroticum",
+      "в": "Processus spinosus (раздвоенный на конце)",
+      "г": "Processus mamillaris"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 636,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 637,
+    "page": 72,
+    "page_end": 72,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ 1 ШЕЙНОГО ПОЗВОНКА",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Massae laterales"
+      },
+      {
+        "label": "б",
+        "text": "Processus accessorius"
+      },
+      {
+        "label": "в",
+        "text": "Fovea dentis"
+      },
+      {
+        "label": "г",
+        "text": "Arcus posterior"
+      }
+    ],
+    "options": {
+      "а": "Massae laterales",
+      "б": "Processus accessorius",
+      "в": "Fovea dentis",
+      "г": "Arcus posterior"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 637,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 638,
+    "page": 72,
+    "page_end": 72,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ 2 ШЕЙНОГО ПОЗВОНКА",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Arcus anterior"
+      },
+      {
+        "label": "б",
+        "text": "Corpus"
+      },
+      {
+        "label": "в",
+        "text": "Dens"
+      },
+      {
+        "label": "г",
+        "text": "Facies articularis anterior"
+      }
+    ],
+    "options": {
+      "а": "Arcus anterior",
+      "б": "Corpus",
+      "в": "Dens",
+      "г": "Facies articularis anterior"
+    },
+    "correct": [
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 638,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 639,
+    "page": 72,
+    "page_end": 72,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ ХАРАКТЕРНЫЕ ДЛЯ ТИПИЧНЫХ ГPУДНЫХ ПОЗВОНКОВ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Foveae costales superiores еt inferiores"
+      },
+      {
+        "label": "б",
+        "text": "Processus costotransversarius"
+      },
+      {
+        "label": "в",
+        "text": "Foveae costalis processus transversus"
+      },
+      {
+        "label": "г",
+        "text": "Processus accessorius"
+      }
+    ],
+    "options": {
+      "а": "Foveae costales superiores еt inferiores",
+      "б": "Processus costotransversarius",
+      "в": "Foveae costalis processus transversus",
+      "г": "Processus accessorius"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 639,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 640,
+    "page": 72,
+    "page_end": 72,
+    "question": "ГРУДНЫЕ ПОЗВОНКИ, ИМЕЮЩИЕ НА ТЕЛЕ ПОЛНЫЕ РЕБЕРНЫЕ ЯМКИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Тh12"
+      },
+      {
+        "label": "б",
+        "text": "Th10"
+      },
+      {
+        "label": "в",
+        "text": "Th1"
+      },
+      {
+        "label": "г",
+        "text": "Th11"
+      }
+    ],
+    "options": {
+      "а": "Тh12",
+      "б": "Th10",
+      "в": "Th1",
+      "г": "Th11"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 640,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 641,
+    "page": 73,
+    "page_end": 73,
+    "question": "УКАЖИТЕ ОТРОСТКИ, ИМЕЮЩИЕСЯ ТОЛЬКО У ПОЯСНИЧНЫХ ПОЗВОНКОВ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Processus transversus"
+      },
+      {
+        "label": "б",
+        "text": "Processus accessorius"
+      },
+      {
+        "label": "в",
+        "text": "Processus articulares superiores еt inferiores"
+      },
+      {
+        "label": "г",
+        "text": "Processus mamillaris"
+      }
+    ],
+    "options": {
+      "а": "Processus transversus",
+      "б": "Processus accessorius",
+      "в": "Processus articulares superiores еt inferiores",
+      "г": "Processus mamillaris"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 641,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 642,
+    "page": 73,
+    "page_end": 73,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ ДОРСАЛЬНОЙ ПОВЕРХНОСТИ КРЕСТЦА",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Crista sacralis mediana"
+      },
+      {
+        "label": "б",
+        "text": "Linae transversae"
+      },
+      {
+        "label": "в",
+        "text": "Canalis sacralis"
+      },
+      {
+        "label": "г",
+        "text": "Hiatus sacralis"
+      }
+    ],
+    "options": {
+      "а": "Crista sacralis mediana",
+      "б": "Linae transversae",
+      "в": "Canalis sacralis",
+      "г": "Hiatus sacralis"
+    },
+    "correct": [
+      "а",
+      "г"
+    ],
+    "source_key": "а,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 642,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 643,
+    "page": 73,
+    "page_end": 73,
+    "question": "УКАЖИТЕ АНОМАЛИИ ПЕРЕХОДНЫХ ОТДЕЛОВ ПОЗВОНОЧНОГО СТОЛБА",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Ассимиляция атланта"
+      },
+      {
+        "label": "б",
+        "text": "Спондилолиз"
+      },
+      {
+        "label": "в",
+        "text": "Сакрализация"
+      },
+      {
+        "label": "г",
+        "text": "Люмбализация"
+      }
+    ],
+    "options": {
+      "а": "Ассимиляция атланта",
+      "б": "Спондилолиз",
+      "в": "Сакрализация",
+      "г": "Люмбализация"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 643,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 644,
+    "page": 73,
+    "page_end": 73,
+    "question": "УКАЖИТЕ ЧАСТИ РЕБРА",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Caput"
+      },
+      {
+        "label": "б",
+        "text": "Collum"
+      },
+      {
+        "label": "в",
+        "text": "Corpus"
+      },
+      {
+        "label": "г",
+        "text": "Cartilago costalis"
+      }
+    ],
+    "options": {
+      "а": "Caput",
+      "б": "Collum",
+      "в": "Corpus",
+      "г": "Cartilago costalis"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 644,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 645,
+    "page": 73,
+    "page_end": 73,
+    "question": "УКАЖИТЕ ЧАСТИ ГРУДИНЫ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Corpus"
+      },
+      {
+        "label": "б",
+        "text": "Processus styloideus"
+      },
+      {
+        "label": "в",
+        "text": "Мanubrium"
+      },
+      {
+        "label": "г",
+        "text": "Incisura clavicularis"
+      }
+    ],
+    "options": {
+      "а": "Corpus",
+      "б": "Processus styloideus",
+      "в": "Мanubrium",
+      "г": "Incisura clavicularis"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 645,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 646,
+    "page": 73,
+    "page_end": 73,
+    "question": "АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ НАХОДЯЩИЕСЯ НА РУКОЯТКЕ ГРУДИНЫ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Facies costalis"
+      },
+      {
+        "label": "б",
+        "text": "Incisura jugularis"
+      },
+      {
+        "label": "в",
+        "text": "Incisura clavicularis"
+      },
+      {
+        "label": "г",
+        "text": "lncisura costalis"
+      }
+    ],
+    "options": {
+      "а": "Facies costalis",
+      "б": "Incisura jugularis",
+      "в": "Incisura clavicularis",
+      "г": "lncisura costalis"
+    },
+    "correct": [
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 646,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 647,
+    "page": 73,
+    "page_end": 73,
+    "question": "УКАЖИТЕ ОСНОВНЫЕ ОТДЕЛЫ SKELETON MEMBRI SUPERIORIS",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Cingulum"
+      },
+      {
+        "label": "б",
+        "text": "Brachium"
+      },
+      {
+        "label": "в",
+        "text": "Manus"
+      },
+      {
+        "label": "г",
+        "text": "Skеlеtоп membri superioris liberi"
+      }
+    ],
+    "options": {
+      "а": "Cingulum",
+      "б": "Brachium",
+      "в": "Manus",
+      "г": "Skеlеtоп membri superioris liberi"
+    },
+    "correct": [
+      "а",
+      "г"
+    ],
+    "source_key": "а,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 647,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 648,
+    "page": 73,
+    "page_end": 73,
+    "question": "УКАЖИТЕ ОТДЕЛЫ SKELETON MEMBRI SUPERIORIS IIBERI",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Antebrachium"
+      },
+      {
+        "label": "б",
+        "text": "Humerus"
+      },
+      {
+        "label": "в",
+        "text": "Manus"
+      },
+      {
+        "label": "г",
+        "text": "Brachium"
+      }
+    ],
+    "options": {
+      "а": "Antebrachium",
+      "б": "Humerus",
+      "в": "Manus",
+      "г": "Brachium"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 648,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 649,
+    "page": 73,
+    "page_end": 73,
+    "question": "КОСТИ, ФОРМИРУЮЩИЕ CINGULUM MEMBRI SUPERIORIS:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Sternum"
+      },
+      {
+        "label": "б",
+        "text": "Clavicula"
+      },
+      {
+        "label": "в",
+        "text": "Humerus"
+      },
+      {
+        "label": "г",
+        "text": "Scapula"
+      }
+    ],
+    "options": {
+      "а": "Sternum",
+      "б": "Clavicula",
+      "в": "Humerus",
+      "г": "Scapula"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 649,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 650,
+    "page": 73,
+    "page_end": 74,
+    "question": "АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ДОРСАЛЬНОЙ ПОВЕРХНОСТИ ЛОПАТКИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Processus acгomialis"
+      },
+      {
+        "label": "б",
+        "text": "Fossa supraspinata"
+      },
+      {
+        "label": "в",
+        "text": "Processus coracoideus"
+      },
+      {
+        "label": "г",
+        "text": "Spina scapulae"
+      }
+    ],
+    "options": {
+      "а": "Processus acгomialis",
+      "б": "Fossa supraspinata",
+      "в": "Processus coracoideus",
+      "г": "Spina scapulae"
+    },
+    "correct": [
+      "а",
+      "б",
+      "г"
+    ],
+    "source_key": "а,б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 650,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 651,
+    "page": 74,
+    "page_end": 74,
+    "question": "АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ В ОБЛАСТИ ЛАТЕРАЛЬНОГО УГЛА ЛОПАТКИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Facies articularis acromialis"
+      },
+      {
+        "label": "б",
+        "text": "Fossa infraspinata"
+      },
+      {
+        "label": "в",
+        "text": "Cavitas glenoidalis"
+      },
+      {
+        "label": "г",
+        "text": "Tuberculum supraglenoidale"
+      }
+    ],
+    "options": {
+      "а": "Facies articularis acromialis",
+      "б": "Fossa infraspinata",
+      "в": "Cavitas glenoidalis",
+      "г": "Tuberculum supraglenoidale"
+    },
+    "correct": [
+      "в",
+      "г"
+    ],
+    "source_key": "в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 651,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 652,
+    "page": 74,
+    "page_end": 74,
+    "question": "АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА АКРОМИАЛЬНОМ КОНЦЕ КЛЮЧИЦЫ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Facies articularis acromialis"
+      },
+      {
+        "label": "б",
+        "text": "Tuberculum conoideum"
+      },
+      {
+        "label": "в",
+        "text": "Linea trapezoidea"
+      },
+      {
+        "label": "г",
+        "text": "Facies articularis stemalis"
+      }
+    ],
+    "options": {
+      "а": "Facies articularis acromialis",
+      "б": "Tuberculum conoideum",
+      "в": "Linea trapezoidea",
+      "г": "Facies articularis stemalis"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 652,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 653,
+    "page": 74,
+    "page_end": 74,
+    "question": "АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, РАСПОЛОЖЕННЫЕ НА ПРОКСИМАЛЬНОМ КОНЦЕ ПЛЕЧЕВОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Collum anatomicum"
+      },
+      {
+        "label": "б",
+        "text": "Epicondylus lateralis"
+      },
+      {
+        "label": "в",
+        "text": "Sulcus intertubercularis"
+      },
+      {
+        "label": "г",
+        "text": "Caput humeri"
+      }
+    ],
+    "options": {
+      "а": "Collum anatomicum",
+      "б": "Epicondylus lateralis",
+      "в": "Sulcus intertubercularis",
+      "г": "Caput humeri"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 653,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 654,
+    "page": 74,
+    "page_end": 74,
+    "question": "УКАЖИТЕ ПОВЕРХНОСТЬ ТЕЛА ПЛЕЧЕВОЙ КОСТИ ПО КОТОРОЙ ПРОХОДИТ SULCUS NERVI RADIALIS:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Facies medialis"
+      },
+      {
+        "label": "б",
+        "text": "Facies lateralis"
+      },
+      {
+        "label": "в",
+        "text": "Facies anterior"
+      },
+      {
+        "label": "г",
+        "text": "Facies postetior"
+      }
+    ],
+    "options": {
+      "а": "Facies medialis",
+      "б": "Facies lateralis",
+      "в": "Facies anterior",
+      "г": "Facies postetior"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 654,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 655,
+    "page": 74,
+    "page_end": 74,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ ДИСТАЛЬНОГО ЭПИФИЗА ПЛЕЧЕВОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Trochlea humeri"
+      },
+      {
+        "label": "б",
+        "text": "Tuberculum majus"
+      },
+      {
+        "label": "в",
+        "text": "Sulcus nervi ulnaris"
+      },
+      {
+        "label": "г",
+        "text": "Fossa olecrani"
+      }
+    ],
+    "options": {
+      "а": "Trochlea humeri",
+      "б": "Tuberculum majus",
+      "в": "Sulcus nervi ulnaris",
+      "г": "Fossa olecrani"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 655,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 656,
+    "page": 74,
+    "page_end": 74,
+    "question": "КОСТИ, ОБРАЗУЮЩИЕ СКЕЛЕТ ПРЕДПЛЕЧЬЯ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Radius"
+      },
+      {
+        "label": "б",
+        "text": "Humerus"
+      },
+      {
+        "label": "в",
+        "text": "Fibula"
+      },
+      {
+        "label": "г",
+        "text": "Ulna"
+      }
+    ],
+    "options": {
+      "а": "Radius",
+      "б": "Humerus",
+      "в": "Fibula",
+      "г": "Ulna"
+    },
+    "correct": [
+      "а",
+      "г"
+    ],
+    "source_key": "а,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 656,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 657,
+    "page": 74,
+    "page_end": 74,
+    "question": "НАЗОВИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ НА ПРОКСИМАЛЬНОМ КОНЦЕ ЛОКТЕВОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Olecranon"
+      },
+      {
+        "label": "б",
+        "text": "Caput"
+      },
+      {
+        "label": "в",
+        "text": "Incisura radialis"
+      },
+      {
+        "label": "г",
+        "text": "Incisura trochlearis"
+      }
+    ],
+    "options": {
+      "а": "Olecranon",
+      "б": "Caput",
+      "в": "Incisura radialis",
+      "г": "Incisura trochlearis"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 657,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 658,
+    "page": 74,
+    "page_end": 74,
+    "question": "АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ДИСТАЛЬНОМ КОНЦЕ ЛУЧЕВОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Collum"
+      },
+      {
+        "label": "б",
+        "text": "Caput"
+      },
+      {
+        "label": "в",
+        "text": "Incisura ulnaris"
+      },
+      {
+        "label": "г",
+        "text": "Processus styloideus"
+      }
+    ],
+    "options": {
+      "а": "Collum",
+      "б": "Caput",
+      "в": "Incisura ulnaris",
+      "г": "Processus styloideus"
+    },
+    "correct": [
+      "в",
+      "г"
+    ],
+    "source_key": "в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 658,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 659,
+    "page": 74,
+    "page_end": 74,
+    "question": "КОСТИ ВЕРХНЕЙ КОНЕЧНОСТИ, ИМЕЮЩИЕ СУСТАВНУЮ ОКРУЖНОСТЬ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Humerus"
+      },
+      {
+        "label": "б",
+        "text": "Ulna"
+      },
+      {
+        "label": "в",
+        "text": "Clavicula"
+      },
+      {
+        "label": "г",
+        "text": "Radius"
+      }
+    ],
+    "options": {
+      "а": "Humerus",
+      "б": "Ulna",
+      "в": "Clavicula",
+      "г": "Radius"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 659,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 660,
+    "page": 75,
+    "page_end": 75,
+    "question": "КОСТИ, ИМЕЮЩИЕ ШИЛОВИДНЫЙ ОТРОСТОК:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os hamatum"
+      },
+      {
+        "label": "б",
+        "text": "Humerus"
+      },
+      {
+        "label": "в",
+        "text": "Ulna"
+      },
+      {
+        "label": "г",
+        "text": "Radius"
+      }
+    ],
+    "options": {
+      "а": "Os hamatum",
+      "б": "Humerus",
+      "в": "Ulna",
+      "г": "Radius"
+    },
+    "correct": [
+      "в",
+      "г"
+    ],
+    "source_key": "в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 660,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 661,
+    "page": 75,
+    "page_end": 75,
+    "question": "УКАЖИТЕ КАКИЕ ЧАСТИ ВЫДЕЛЯЮТ В СКЕЛЕТЕ КИСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Metacarpus"
+      },
+      {
+        "label": "б",
+        "text": "Tarsus"
+      },
+      {
+        "label": "в",
+        "text": "Carpus"
+      },
+      {
+        "label": "г",
+        "text": "Phalanges digitorum manus"
+      }
+    ],
+    "options": {
+      "а": "Metacarpus",
+      "б": "Tarsus",
+      "в": "Carpus",
+      "г": "Phalanges digitorum manus"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 661,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 662,
+    "page": 75,
+    "page_end": 75,
+    "question": "КОСТИ, ВХОДЯЩИЕ В ДИСТАЛЬНЫЙ РЯД КОСТЕЙ ЗАПЯСТЬЯ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os trapezoideum"
+      },
+      {
+        "label": "б",
+        "text": "Os lunаtum"
+      },
+      {
+        "label": "в",
+        "text": "Os capitatum"
+      },
+      {
+        "label": "г",
+        "text": "Os hamatum"
+      }
+    ],
+    "options": {
+      "а": "Os trapezoideum",
+      "б": "Os lunаtum",
+      "в": "Os capitatum",
+      "г": "Os hamatum"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 662,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 663,
+    "page": 75,
+    "page_end": 75,
+    "question": "УКАЖИТЕ ЧАСТИ ПЯСТНЫХ КОСТЕЙ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Basis"
+      },
+      {
+        "label": "б",
+        "text": "Collum"
+      },
+      {
+        "label": "в",
+        "text": "Corpus"
+      },
+      {
+        "label": "г",
+        "text": "Caput"
+      }
+    ],
+    "options": {
+      "а": "Basis",
+      "б": "Collum",
+      "в": "Corpus",
+      "г": "Caput"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 663,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 664,
+    "page": 75,
+    "page_end": 75,
+    "question": "УКАЖИТЕ ОСНОВНЫЕ ОТДЕЛЫ СКЕЛЕТА НИЖНЕЙ КОНЕЧНОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Femur"
+      },
+      {
+        "label": "б",
+        "text": "Pes"
+      },
+      {
+        "label": "в",
+        "text": "Cinglllum"
+      },
+      {
+        "label": "г",
+        "text": "Skeleton membri inferioris liberi"
+      }
+    ],
+    "options": {
+      "а": "Femur",
+      "б": "Pes",
+      "в": "Cinglllum",
+      "г": "Skeleton membri inferioris liberi"
+    },
+    "correct": [
+      "в",
+      "г"
+    ],
+    "source_key": "в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 664,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 665,
+    "page": 75,
+    "page_end": 75,
+    "question": "КОСТИ, ФОРМИРУЮЩИЕ OS СОХАЕ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os pubis"
+      },
+      {
+        "label": "б",
+        "text": "Os sacrum"
+      },
+      {
+        "label": "в",
+        "text": "Os ischii"
+      },
+      {
+        "label": "г",
+        "text": "Os ilium"
+      }
+    ],
+    "options": {
+      "а": "Os pubis",
+      "б": "Os sacrum",
+      "в": "Os ischii",
+      "г": "Os ilium"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 665,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 666,
+    "page": 75,
+    "page_end": 75,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, ПРИНАДЛЕЖАЩИЕ ПОДВЗДОШНОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Sulcus obturatorius"
+      },
+      {
+        "label": "б",
+        "text": "Facies auricularis"
+      },
+      {
+        "label": "в",
+        "text": "Facies symphysialis"
+      },
+      {
+        "label": "г",
+        "text": "Ala osis ilii"
+      }
+    ],
+    "options": {
+      "а": "Sulcus obturatorius",
+      "б": "Facies auricularis",
+      "в": "Facies symphysialis",
+      "г": "Ala osis ilii"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 666,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 667,
+    "page": 75,
+    "page_end": 75,
+    "question": "АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ПОДВЗДОШНОМ ГРЕБНЕ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Tuberositas iliaca"
+      },
+      {
+        "label": "б",
+        "text": "Spina iliaca anterior superior"
+      },
+      {
+        "label": "в",
+        "text": "Spina iliaca posterior inferior"
+      },
+      {
+        "label": "г",
+        "text": "Linea arcuata"
+      }
+    ],
+    "options": {
+      "а": "Tuberositas iliaca",
+      "б": "Spina iliaca anterior superior",
+      "в": "Spina iliaca posterior inferior",
+      "г": "Linea arcuata"
+    },
+    "correct": [
+      "б",
+      "в"
+    ],
+    "source_key": "б,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 667,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 668,
+    "page": 75,
+    "page_end": 75,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ ВЕРТЛУЖНОЙ ВПАДИНЫ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Facies lunata"
+      },
+      {
+        "label": "б",
+        "text": "Fossa acetabuli"
+      },
+      {
+        "label": "в",
+        "text": "lncisura acetabuli"
+      },
+      {
+        "label": "г",
+        "text": "Fovea capitis femoris"
+      }
+    ],
+    "options": {
+      "а": "Facies lunata",
+      "б": "Fossa acetabuli",
+      "в": "lncisura acetabuli",
+      "г": "Fovea capitis femoris"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в"
+    ],
+    "source_key": "а,б,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 668,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 669,
+    "page": 75,
+    "page_end": 75,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ OS PUBIS",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Tuberculum pubicum"
+      },
+      {
+        "label": "б",
+        "text": "Sulcus obturatorius"
+      },
+      {
+        "label": "в",
+        "text": "Eminentia iliopubica"
+      },
+      {
+        "label": "г",
+        "text": "Crista pubica"
+      }
+    ],
+    "options": {
+      "а": "Tuberculum pubicum",
+      "б": "Sulcus obturatorius",
+      "в": "Eminentia iliopubica",
+      "г": "Crista pubica"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 669,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 670,
+    "page": 76,
+    "page_end": 76,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ПРОКСИМАЛЬНОМ ЭПИФИЗЕ БЕДРЕННОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Trochanter major"
+      },
+      {
+        "label": "б",
+        "text": "Condylus medialis"
+      },
+      {
+        "label": "в",
+        "text": "Linea pectinea"
+      },
+      {
+        "label": "г",
+        "text": "Linea intertrochanterica"
+      }
+    ],
+    "options": {
+      "а": "Trochanter major",
+      "б": "Condylus medialis",
+      "в": "Linea pectinea",
+      "г": "Linea intertrochanterica"
+    },
+    "correct": [
+      "а",
+      "г"
+    ],
+    "source_key": "а,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 670,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 671,
+    "page": 76,
+    "page_end": 76,
+    "question": "УКАЖИТЕ ЧАСТИ ШЕРОХОВАТОЙ ЛИНИИ БЕДРЕННОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Tuberositas glutea"
+      },
+      {
+        "label": "б",
+        "text": "Labium mediale"
+      },
+      {
+        "label": "в",
+        "text": "Linea pectinea"
+      },
+      {
+        "label": "г",
+        "text": "Labium laterale"
+      }
+    ],
+    "options": {
+      "а": "Tuberositas glutea",
+      "б": "Labium mediale",
+      "в": "Linea pectinea",
+      "г": "Labium laterale"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 671,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 672,
+    "page": 76,
+    "page_end": 76,
+    "question": "АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ДИСТАЛЬНОМ ЭПИФИЗЕ БЕДРЕННОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Epicondylus lateralis"
+      },
+      {
+        "label": "б",
+        "text": "Condylus la!eralis"
+      },
+      {
+        "label": "в",
+        "text": "Facies poplitea"
+      },
+      {
+        "label": "г",
+        "text": "Facies patellaris"
+      }
+    ],
+    "options": {
+      "а": "Epicondylus lateralis",
+      "б": "Condylus la!eralis",
+      "в": "Facies poplitea",
+      "г": "Facies patellaris"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 672,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 673,
+    "page": 76,
+    "page_end": 76,
+    "question": "УКАЖИТЕ, КАКИЕ КОСТИ НИЖНЕЙ КОНЕЧНОСТИ ИМЕЮТ ЛОДЫЖКИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Tibia"
+      },
+      {
+        "label": "б",
+        "text": "Talus"
+      },
+      {
+        "label": "в",
+        "text": "Fibula"
+      },
+      {
+        "label": "г",
+        "text": "Calcaneus"
+      }
+    ],
+    "options": {
+      "а": "Tibia",
+      "б": "Talus",
+      "в": "Fibula",
+      "г": "Calcaneus"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 673,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 674,
+    "page": 76,
+    "page_end": 76,
+    "question": "АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ПРОКСИМАЛЬНОМ ЭПИФИЗЕ БОЛЬШЕБЕРЦОВОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Агеа intercondylaris anterior"
+      },
+      {
+        "label": "б",
+        "text": "Facies articularis fibularis"
+      },
+      {
+        "label": "в",
+        "text": "Incisura fibularis"
+      },
+      {
+        "label": "г",
+        "text": "Eminentia intercondylaris"
+      }
+    ],
+    "options": {
+      "а": "Агеа intercondylaris anterior",
+      "б": "Facies articularis fibularis",
+      "в": "Incisura fibularis",
+      "г": "Eminentia intercondylaris"
+    },
+    "correct": [
+      "а",
+      "б",
+      "г"
+    ],
+    "source_key": "а,б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 674,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 675,
+    "page": 76,
+    "page_end": 76,
+    "question": "КОСТИ ПРЕДПЛЮСНЫ, ОБРАЗУЮЩИЕ ЕЕ ПРОКСИМАЛЬНЫЙ РЯД:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os cuneiforme mediale"
+      },
+      {
+        "label": "б",
+        "text": "Os naviculare"
+      },
+      {
+        "label": "в",
+        "text": "Calcaneus"
+      },
+      {
+        "label": "г",
+        "text": "Talus"
+      }
+    ],
+    "options": {
+      "а": "Os cuneiforme mediale",
+      "б": "Os naviculare",
+      "в": "Calcaneus",
+      "г": "Talus"
+    },
+    "correct": [
+      "в",
+      "г"
+    ],
+    "source_key": "в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 675,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 676,
+    "page": 76,
+    "page_end": 76,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ТАРАННОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Trochlea"
+      },
+      {
+        "label": "б",
+        "text": "Facies malleolaris medialis"
+      },
+      {
+        "label": "в",
+        "text": "Caput"
+      },
+      {
+        "label": "г",
+        "text": "Facies articularis calcanea posterior"
+      }
+    ],
+    "options": {
+      "а": "Trochlea",
+      "б": "Facies malleolaris medialis",
+      "в": "Caput",
+      "г": "Facies articularis calcanea posterior"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 676,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 677,
+    "page": 76,
+    "page_end": 76,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ПЯТОЧНОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Facies malleolaris lateralis"
+      },
+      {
+        "label": "б",
+        "text": "Sustentaculum tali"
+      },
+      {
+        "label": "в",
+        "text": "Facies articularis talaris media"
+      },
+      {
+        "label": "г",
+        "text": "Facies anicularis navicularis"
+      }
+    ],
+    "options": {
+      "а": "Facies malleolaris lateralis",
+      "б": "Sustentaculum tali",
+      "в": "Facies articularis talaris media",
+      "г": "Facies anicularis navicularis"
+    },
+    "correct": [
+      "б",
+      "в"
+    ],
+    "source_key": "б,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 677,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 678,
+    "page": 76,
+    "page_end": 76,
+    "question": "УКАЖИТЕ КОСТИ, УЧАСТВУЮЩИЕ В ФОРМИРОВАНИИ CRANIUM CEREBRALE",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os sphenoidale"
+      },
+      {
+        "label": "б",
+        "text": "Os occipitale"
+      },
+      {
+        "label": "в",
+        "text": "Os frontale"
+      },
+      {
+        "label": "г",
+        "text": "Os parietale"
+      }
+    ],
+    "options": {
+      "а": "Os sphenoidale",
+      "б": "Os occipitale",
+      "в": "Os frontale",
+      "г": "Os parietale"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 678,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 679,
+    "page": 77,
+    "page_end": 77,
+    "question": "УКАЖИТЕ КОСТИ ЧЕРЕПА, ИМЕЮЩИЕ ВОЗДУХОНОСНЫЕ ПАЗУХИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Mandibula"
+      },
+      {
+        "label": "б",
+        "text": "Os sphenoidale"
+      },
+      {
+        "label": "в",
+        "text": "Os frontale"
+      },
+      {
+        "label": "г",
+        "text": "Maxilla"
+      }
+    ],
+    "options": {
+      "а": "Mandibula",
+      "б": "Os sphenoidale",
+      "в": "Os frontale",
+      "г": "Maxilla"
+    },
+    "correct": [
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 679,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 680,
+    "page": 77,
+    "page_end": 77,
+    "question": "УКАЖИТЕ ОСНОВНЫЕ ЧАСТИ ЛОБНОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Squama"
+      },
+      {
+        "label": "б",
+        "text": "Sinus frontalis"
+      },
+      {
+        "label": "в",
+        "text": "Pars orbitalis"
+      },
+      {
+        "label": "г",
+        "text": "Pars nasalis"
+      }
+    ],
+    "options": {
+      "а": "Squama",
+      "б": "Sinus frontalis",
+      "в": "Pars orbitalis",
+      "г": "Pars nasalis"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 680,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 681,
+    "page": 77,
+    "page_end": 77,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ ВНУТРЕННЕЙ ПОВЕРХНОСТИ ЧЕШУИ ЛОБНОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Sulcus sinus sagittalis superioris"
+      },
+      {
+        "label": "б",
+        "text": "Sulcus sinus sigmoidei"
+      },
+      {
+        "label": "в",
+        "text": "Crista galli"
+      },
+      {
+        "label": "г",
+        "text": "Foveolae granulares"
+      }
+    ],
+    "options": {
+      "а": "Sulcus sinus sagittalis superioris",
+      "б": "Sulcus sinus sigmoidei",
+      "в": "Crista galli",
+      "г": "Foveolae granulares"
+    },
+    "correct": [
+      "а",
+      "г"
+    ],
+    "source_key": "а,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 681,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 682,
+    "page": 77,
+    "page_end": 77,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ НАРУЖНОЙ ПОВЕРХНОСТИ ЧЕШУИ ЛОБНОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Arcus superciliaris"
+      },
+      {
+        "label": "б",
+        "text": "Incisura ethmoidalis"
+      },
+      {
+        "label": "в",
+        "text": "Glabella"
+      },
+      {
+        "label": "г",
+        "text": "Linea temporalis"
+      }
+    ],
+    "options": {
+      "а": "Arcus superciliaris",
+      "б": "Incisura ethmoidalis",
+      "в": "Glabella",
+      "г": "Linea temporalis"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 682,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 683,
+    "page": 77,
+    "page_end": 77,
+    "question": "УКАЖИТЕ ОСНОВНЫЕ ЧАСТИ ЗАТЫЛОЧНОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Рагs basilaris"
+      },
+      {
+        "label": "б",
+        "text": "Clivus"
+      },
+      {
+        "label": "в",
+        "text": "Squama occipitalis"
+      },
+      {
+        "label": "г",
+        "text": "Foramen magnum"
+      }
+    ],
+    "options": {
+      "а": "Рагs basilaris",
+      "б": "Clivus",
+      "в": "Squama occipitalis",
+      "г": "Foramen magnum"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 683,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 684,
+    "page": 77,
+    "page_end": 77,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ ВНУТРЕННЕЙ ПОВЕРХНОСТИ ЧЕШУИ ЗАТЫЛОЧНОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Sulcus sinus petrosi inferioris"
+      },
+      {
+        "label": "б",
+        "text": "Sulcus sinus transversus"
+      },
+      {
+        "label": "в",
+        "text": "Linea nuchae superior"
+      },
+      {
+        "label": "г",
+        "text": "Sulcus sinus sagittalis superiores"
+      }
+    ],
+    "options": {
+      "а": "Sulcus sinus petrosi inferioris",
+      "б": "Sulcus sinus transversus",
+      "в": "Linea nuchae superior",
+      "г": "Sulcus sinus sagittalis superiores"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 684,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 685,
+    "page": 77,
+    "page_end": 77,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА БОКОВЫХ ЧАСТЯХ ЗАТЫЛОЧНОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "lncisura jugularis"
+      },
+      {
+        "label": "б",
+        "text": "Sulcus sinus sigmoidei"
+      },
+      {
+        "label": "в",
+        "text": "Condylus occipitalis"
+      },
+      {
+        "label": "г",
+        "text": "Canalis hypoglossalis"
+      }
+    ],
+    "options": {
+      "а": "lncisura jugularis",
+      "б": "Sulcus sinus sigmoidei",
+      "в": "Condylus occipitalis",
+      "г": "Canalis hypoglossalis"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 685,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 686,
+    "page": 77,
+    "page_end": 77,
+    "question": "НАЗОВИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ НА ВНУТРЕННЕЙ ПОВЕРХНОСТИ ТЕМЕННОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Linea temporalis"
+      },
+      {
+        "label": "б",
+        "text": "Тubег parietale"
+      },
+      {
+        "label": "в",
+        "text": "Sulci arteriosi"
+      },
+      {
+        "label": "г",
+        "text": "Sulcus sinus sagittalis superioris"
+      }
+    ],
+    "options": {
+      "а": "Linea temporalis",
+      "б": "Тubег parietale",
+      "в": "Sulci arteriosi",
+      "г": "Sulcus sinus sagittalis superioris"
+    },
+    "correct": [
+      "в",
+      "г"
+    ],
+    "source_key": "в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 686,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 687,
+    "page": 77,
+    "page_end": 77,
+    "question": "УКАЖИТЕ ОСНОВНЫЕ ЧАСТИ КЛИНОВИДНОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Ala major"
+      },
+      {
+        "label": "б",
+        "text": "Processus pterygoideus"
+      },
+      {
+        "label": "в",
+        "text": "Sinus sphenoidalis"
+      },
+      {
+        "label": "г",
+        "text": "Ala minor"
+      }
+    ],
+    "options": {
+      "а": "Ala major",
+      "б": "Processus pterygoideus",
+      "в": "Sinus sphenoidalis",
+      "г": "Ala minor"
+    },
+    "correct": [
+      "а",
+      "б",
+      "г"
+    ],
+    "source_key": "а,б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 687,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 688,
+    "page": 78,
+    "page_end": 78,
+    "question": "УКАЖИТЕ ОСНОВНЫЕ ЧАСТИ РЕШЕТЧАТОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Lamina cribrosa"
+      },
+      {
+        "label": "б",
+        "text": "Labyrinthus ethmoidalis"
+      },
+      {
+        "label": "в",
+        "text": "Lamina perpendicularis"
+      },
+      {
+        "label": "г",
+        "text": "Cellulae ethmoidales"
+      }
+    ],
+    "options": {
+      "а": "Lamina cribrosa",
+      "б": "Labyrinthus ethmoidalis",
+      "в": "Lamina perpendicularis",
+      "г": "Cellulae ethmoidales"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в"
+    ],
+    "source_key": "а,б,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 688,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 689,
+    "page": 78,
+    "page_end": 78,
+    "question": "НАЗОВИТЕ НОСОВЫЕ РАКОВИНЫ, ЯВЛЯЮЩИМИСЯ ОБРАЗОВАНИЯМИ РЕШЕТЧАТОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Concha nasalis superior"
+      },
+      {
+        "label": "б",
+        "text": "Concha nasalis inferior"
+      },
+      {
+        "label": "в",
+        "text": "Concha nasalis media"
+      },
+      {
+        "label": "г",
+        "text": "Concha nasalis suprema"
+      }
+    ],
+    "options": {
+      "а": "Concha nasalis superior",
+      "б": "Concha nasalis inferior",
+      "в": "Concha nasalis media",
+      "г": "Concha nasalis suprema"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 689,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 690,
+    "page": 78,
+    "page_end": 78,
+    "question": "УКАЖИТЕ ОСНОВНЫЕ ЧАСТИ ВИСОЧНОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Pars petrosa"
+      },
+      {
+        "label": "б",
+        "text": "Processus mastoideus"
+      },
+      {
+        "label": "в",
+        "text": "Pars tympanica"
+      },
+      {
+        "label": "г",
+        "text": "Pars squamosa"
+      }
+    ],
+    "options": {
+      "а": "Pars petrosa",
+      "б": "Processus mastoideus",
+      "в": "Pars tympanica",
+      "г": "Pars squamosa"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 690,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 691,
+    "page": 78,
+    "page_end": 78,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ НА ПЕРЕДНЕЙ ПОВЕРХНОСТИ ПИРАМИДЫ ВИСОЧНОЙ КОСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Eminentia аrcuata"
+      },
+      {
+        "label": "б",
+        "text": "Impressio trigemini"
+      },
+      {
+        "label": "в",
+        "text": "Fossula petrosa"
+      },
+      {
+        "label": "г",
+        "text": "Sulcus sinus petrosi infeгioris"
+      }
+    ],
+    "options": {
+      "а": "Eminentia аrcuata",
+      "б": "Impressio trigemini",
+      "в": "Fossula petrosa",
+      "г": "Sulcus sinus petrosi infeгioris"
+    },
+    "correct": [
+      "а",
+      "б"
+    ],
+    "source_key": "а,б",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 691,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 692,
+    "page": 78,
+    "page_end": 78,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ЗАДНЕЙ ПОВЕРХНОСТИ ПИРАМИДЫ ВИСОЧНОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Tegmen tympani"
+      },
+      {
+        "label": "б",
+        "text": "Sulcus sinus sigmoidei"
+      },
+      {
+        "label": "в",
+        "text": "Apertura externa agueduclus vestibuli"
+      },
+      {
+        "label": "г",
+        "text": "Porus acusticus internus"
+      }
+    ],
+    "options": {
+      "а": "Tegmen tympani",
+      "б": "Sulcus sinus sigmoidei",
+      "в": "Apertura externa agueduclus vestibuli",
+      "г": "Porus acusticus internus"
+    },
+    "correct": [
+      "в",
+      "г"
+    ],
+    "source_key": "в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 692,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 693,
+    "page": 78,
+    "page_end": 78,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА НИЖНЕЙ ПОВЕРХНОСТИ ПИРАМИДЫ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Fossa subarcuata"
+      },
+      {
+        "label": "б",
+        "text": "Apertura inferior canaliculi tympanici"
+      },
+      {
+        "label": "в",
+        "text": "Foramen jugulare"
+      },
+      {
+        "label": "г",
+        "text": "Apertura externa canalis carotici"
+      }
+    ],
+    "options": {
+      "а": "Fossa subarcuata",
+      "б": "Apertura inferior canaliculi tympanici",
+      "в": "Foramen jugulare",
+      "г": "Apertura externa canalis carotici"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 693,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 694,
+    "page": 78,
+    "page_end": 78,
+    "question": "УКАЖИТЕ ОТРОСТКИ, КОТОРЫЕ ИМЕЕТ ВИСОЧНАЯ КОСТЬ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Processus frontalis"
+      },
+      {
+        "label": "б",
+        "text": "Processus zygomaticus"
+      },
+      {
+        "label": "в",
+        "text": "Processus pterygoideus"
+      },
+      {
+        "label": "г",
+        "text": "Processus mastoideus"
+      }
+    ],
+    "options": {
+      "а": "Processus frontalis",
+      "б": "Processus zygomaticus",
+      "в": "Processus pterygoideus",
+      "г": "Processus mastoideus"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 694,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 695,
+    "page": 78,
+    "page_end": 78,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА СОСЦЕВИДНОМ ОТРОСТКЕ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Sulcus arteriae occipitalis"
+      },
+      {
+        "label": "б",
+        "text": "Sulcus sinus petrosi inferioris"
+      },
+      {
+        "label": "в",
+        "text": "Impressio trigemini"
+      },
+      {
+        "label": "г",
+        "text": "Incisura mastoidea"
+      }
+    ],
+    "options": {
+      "а": "Sulcus arteriae occipitalis",
+      "б": "Sulcus sinus petrosi inferioris",
+      "в": "Impressio trigemini",
+      "г": "Incisura mastoidea"
+    },
+    "correct": [
+      "а",
+      "г"
+    ],
+    "source_key": "а,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 695,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 696,
+    "page": 78,
+    "page_end": 78,
+    "question": "УКАЖИТЕ КАНАЛЫ, ПРОХОДЯЩИЕ ЧЕРЕЗ ПИРАМИДУ ВИСОЧНОЙ КОСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Canalis caroticus"
+      },
+      {
+        "label": "б",
+        "text": "Canalis opticus"
+      },
+      {
+        "label": "в",
+        "text": "Canalis facialis"
+      },
+      {
+        "label": "г",
+        "text": "Canaliculus mastoideus"
+      }
+    ],
+    "options": {
+      "а": "Canalis caroticus",
+      "б": "Canalis opticus",
+      "в": "Canalis facialis",
+      "г": "Canaliculus mastoideus"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 696,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 697,
+    "page": 79,
+    "page_end": 79,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ ПЕРЕДНЕЙ ПОВЕРХНОСТИ ТЕЛА ВЕРХНЕЙ ЧЕЛЮСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Fossa canina"
+      },
+      {
+        "label": "б",
+        "text": "Sulcus infraorbitalis"
+      },
+      {
+        "label": "в",
+        "text": "Foramen infraorbitale"
+      },
+      {
+        "label": "г",
+        "text": "Tuber maxillae"
+      }
+    ],
+    "options": {
+      "а": "Fossa canina",
+      "б": "Sulcus infraorbitalis",
+      "в": "Foramen infraorbitale",
+      "г": "Tuber maxillae"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 697,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 698,
+    "page": 79,
+    "page_end": 79,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА PARS ALVEOLARIS MANDIBULAE:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Alveoli dentales"
+      },
+      {
+        "label": "б",
+        "text": "Septa interalveolaria"
+      },
+      {
+        "label": "в",
+        "text": "Septa interradicularia"
+      },
+      {
+        "label": "г",
+        "text": "Juga alveolaria"
+      }
+    ],
+    "options": {
+      "а": "Alveoli dentales",
+      "б": "Septa interalveolaria",
+      "в": "Septa interradicularia",
+      "г": "Juga alveolaria"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 698,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 699,
+    "page": 79,
+    "page_end": 79,
+    "question": "УКАЖИТЕ ОТРОСТКИ ВЕРХНЕЙ ЧЕЛЮСТИ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Processus palatinus"
+      },
+      {
+        "label": "б",
+        "text": "Processus pyramidalis"
+      },
+      {
+        "label": "в",
+        "text": "Processus frontalis"
+      },
+      {
+        "label": "г",
+        "text": "Processus orbitalis"
+      }
+    ],
+    "options": {
+      "а": "Processus palatinus",
+      "б": "Processus pyramidalis",
+      "в": "Processus frontalis",
+      "г": "Processus orbitalis"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 699,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 700,
+    "page": 79,
+    "page_end": 79,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ТЕЛЕ НИЖНЕЙ ЧЕЛЮСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Foгamen mandibulae"
+      },
+      {
+        "label": "б",
+        "text": "Spina mentalis"
+      },
+      {
+        "label": "в",
+        "text": "Fossa digastrica"
+      },
+      {
+        "label": "г",
+        "text": "Linea mylochyoidea"
+      }
+    ],
+    "options": {
+      "а": "Foгamen mandibulae",
+      "б": "Spina mentalis",
+      "в": "Fossa digastrica",
+      "г": "Linea mylochyoidea"
+    },
+    "correct": [
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 700,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 701,
+    "page": 79,
+    "page_end": 79,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, НАХОДЯЩИЕСЯ НА ВЕТВИ НИЖНЕЙ ЧЕЛЮСТИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Tuberositas pterygoidea"
+      },
+      {
+        "label": "б",
+        "text": "Foгamen mentale"
+      },
+      {
+        "label": "в",
+        "text": "Processus coronoideus"
+      },
+      {
+        "label": "г",
+        "text": "Sulcus mylohyoideus"
+      }
+    ],
+    "options": {
+      "а": "Tuberositas pterygoidea",
+      "б": "Foгamen mentale",
+      "в": "Processus coronoideus",
+      "г": "Sulcus mylohyoideus"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 701,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 702,
+    "page": 79,
+    "page_end": 79,
+    "question": "НАЗОВИТЕ КОСТИ, ПРИНИМАЮЩИЕ УЧАСТИЕ В ОБРАЗОВАНИИ FOSSA CRANIL ANTERIOR:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os frontale"
+      },
+      {
+        "label": "б",
+        "text": "Os ethmoidale"
+      },
+      {
+        "label": "в",
+        "text": "Os parietale"
+      },
+      {
+        "label": "г",
+        "text": "Os sphenoidale"
+      }
+    ],
+    "options": {
+      "а": "Os frontale",
+      "б": "Os ethmoidale",
+      "в": "Os parietale",
+      "г": "Os sphenoidale"
+    },
+    "correct": [
+      "а",
+      "б",
+      "г"
+    ],
+    "source_key": "а,б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 702,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 703,
+    "page": 79,
+    "page_end": 79,
+    "question": "НАЗОВИТЕ ОТВЕРСТИЯ, НАХОДЯЩИЕСЯ НА ДНЕ FOSSA CRANII MEDIA:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Foгamen spinosum"
+      },
+      {
+        "label": "б",
+        "text": "Porus acusticus internus"
+      },
+      {
+        "label": "в",
+        "text": "Foramen lacerum"
+      },
+      {
+        "label": "г",
+        "text": "Foramen jugulare"
+      }
+    ],
+    "options": {
+      "а": "Foгamen spinosum",
+      "б": "Porus acusticus internus",
+      "в": "Foramen lacerum",
+      "г": "Foramen jugulare"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 703,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 704,
+    "page": 79,
+    "page_end": 79,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, СООБЩАЮЩИЕ FOSSA CRANII MEDIA С ГЛАЗНИЦЕЙ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Саnаlis opticus"
+      },
+      {
+        "label": "б",
+        "text": "Fissuгa orbitalis inferior"
+      },
+      {
+        "label": "в",
+        "text": "Fissura orbitalis superior"
+      },
+      {
+        "label": "г",
+        "text": "Foramen ovale"
+      }
+    ],
+    "options": {
+      "а": "Саnаlis opticus",
+      "б": "Fissuгa orbitalis inferior",
+      "в": "Fissura orbitalis superior",
+      "г": "Foramen ovale"
+    },
+    "correct": [
+      "а",
+      "в"
+    ],
+    "source_key": "а,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 704,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 705,
+    "page": 79,
+    "page_end": 79,
+    "question": "НАЗОВИТЕ ОТВЕРСТИЯ, КОТОРЫЕ СООБЩАЮТ ЗАДНЮЮ ЧЕРЕПНУЮ ЯМКУ С НАРУЖНЫМ ОСНОВАНИЕМ ЧЕРЕПА:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Foramen ovale"
+      },
+      {
+        "label": "б",
+        "text": "Foгamen jugulare"
+      },
+      {
+        "label": "в",
+        "text": "Apertuгa extema aquaeductus vestibuli"
+      },
+      {
+        "label": "г",
+        "text": "Foгamen mаgnum"
+      }
+    ],
+    "options": {
+      "а": "Foramen ovale",
+      "б": "Foгamen jugulare",
+      "в": "Apertuгa extema aquaeductus vestibuli",
+      "г": "Foгamen mаgnum"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 705,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 706,
+    "page": 80,
+    "page_end": 80,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, ФОРМИРУЮЩИЕ СТЕНКИ FOSSA INFRATEMPORALLS:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Lamina lateralis processus pterygoideus"
+      },
+      {
+        "label": "б",
+        "text": "Lamina medialis processus pterygoideus"
+      },
+      {
+        "label": "в",
+        "text": "Tuber maxillae"
+      },
+      {
+        "label": "г",
+        "text": "Ramus mandibulae"
+      }
+    ],
+    "options": {
+      "а": "Lamina lateralis processus pterygoideus",
+      "б": "Lamina medialis processus pterygoideus",
+      "в": "Tuber maxillae",
+      "г": "Ramus mandibulae"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 706,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 707,
+    "page": 80,
+    "page_end": 80,
+    "question": "НАЗОВИТЕ ОТВЕРСТИЯ, КОТОРЫЕ СООБЩАЮТ FOSSA INFRATEMPORALIS С СОСЕДНИМИ ПОЛОСТЯМИ ЧЕРЕПА:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Fissuгa pterygomaxillaris"
+      },
+      {
+        "label": "б",
+        "text": "Fissuгa orbitalis inferior"
+      },
+      {
+        "label": "в",
+        "text": "Foгamen sphenopalatinum"
+      },
+      {
+        "label": "г",
+        "text": "Fissuгa orbitalis superior"
+      }
+    ],
+    "options": {
+      "а": "Fissuгa pterygomaxillaris",
+      "б": "Fissuгa orbitalis inferior",
+      "в": "Foгamen sphenopalatinum",
+      "г": "Fissuгa orbitalis superior"
+    },
+    "correct": [
+      "а",
+      "б"
+    ],
+    "source_key": "а,б",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 707,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 708,
+    "page": 80,
+    "page_end": 80,
+    "question": "УКАЖИТЕ АНАТОМИЧЕСКИЕ ОБРАЗОВАНИЯ, ФОРМИРУЮЩИЕ СТЕНКИ КРЫЛОВИДНОНЕБНОЙ ЯМКИ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Lamina perpendicularis os palatini"
+      },
+      {
+        "label": "б",
+        "text": "Tuber maxillae"
+      },
+      {
+        "label": "в",
+        "text": "Processus pterygoideus"
+      },
+      {
+        "label": "г",
+        "text": "Ramus mandibulae"
+      }
+    ],
+    "options": {
+      "а": "Lamina perpendicularis os palatini",
+      "б": "Tuber maxillae",
+      "в": "Processus pterygoideus",
+      "г": "Ramus mandibulae"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в"
+    ],
+    "source_key": "а,б,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 708,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 709,
+    "page": 80,
+    "page_end": 80,
+    "question": "НАЗОВИТЕ КОСТИ, УЧАСТВУЮЩИЕ В ОБРАЗОВАНИИ PARIES INFERIOR ORBITAE:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Махillа"
+      },
+      {
+        "label": "б",
+        "text": "Os palatinum"
+      },
+      {
+        "label": "в",
+        "text": "Os sphenoidale"
+      },
+      {
+        "label": "г",
+        "text": "Os lacrimale"
+      }
+    ],
+    "options": {
+      "а": "Махillа",
+      "б": "Os palatinum",
+      "в": "Os sphenoidale",
+      "г": "Os lacrimale"
+    },
+    "correct": [
+      "а",
+      "б"
+    ],
+    "source_key": "а,б",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 709,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 710,
+    "page": 80,
+    "page_end": 80,
+    "question": "НАЗОВИТЕ КОСТИ, УЧАСТВУЮЩИЕ В ОБРАЗОВАНИИ PARIES LATERALIS ORBITAE:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os zygomaticum"
+      },
+      {
+        "label": "б",
+        "text": "Os sphenoidale"
+      },
+      {
+        "label": "в",
+        "text": "Махillа"
+      },
+      {
+        "label": "г",
+        "text": "Os frontale"
+      }
+    ],
+    "options": {
+      "а": "Os zygomaticum",
+      "б": "Os sphenoidale",
+      "в": "Махillа",
+      "г": "Os frontale"
+    },
+    "correct": [
+      "а",
+      "б",
+      "г"
+    ],
+    "source_key": "а,б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 710,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 711,
+    "page": 80,
+    "page_end": 80,
+    "question": "НАЗОВИТЕ КОСТИ, УЧАСТВУЮЩИЕ В ОБРАЗОВАНИИ PARLES MEDIALLS ORBITAE:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os ethmoidale"
+      },
+      {
+        "label": "б",
+        "text": "Os sphenoidale"
+      },
+      {
+        "label": "в",
+        "text": "Махillа"
+      },
+      {
+        "label": "г",
+        "text": "Os lacrimale"
+      }
+    ],
+    "options": {
+      "а": "Os ethmoidale",
+      "б": "Os sphenoidale",
+      "в": "Махillа",
+      "г": "Os lacrimale"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 711,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 712,
+    "page": 80,
+    "page_end": 80,
+    "question": "НАЗОВИТЕ ОТВЕРСТИЯ, КОТОРЫЕ ИМЕЮТСЯ В ГЛАЗНИЦЕ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Foramen ethmoidale anterius"
+      },
+      {
+        "label": "б",
+        "text": "Саnаlis opticus"
+      },
+      {
+        "label": "в",
+        "text": "Foramen ethmoidale posterius"
+      },
+      {
+        "label": "г",
+        "text": "Fоramen zygomaticoorbitale"
+      }
+    ],
+    "options": {
+      "а": "Foramen ethmoidale anterius",
+      "б": "Саnаlis opticus",
+      "в": "Foramen ethmoidale posterius",
+      "г": "Fоramen zygomaticoorbitale"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 712,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 713,
+    "page": 80,
+    "page_end": 80,
+    "question": "НАЗОВИТЕ КОСТИ, УЧАСТВУЮЩИЕ В ОБРАЗОВАНИИ КОСТНОЙ ПЕРЕГОРОДКИ НОСА:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os nasale"
+      },
+      {
+        "label": "б",
+        "text": "Vоmег"
+      },
+      {
+        "label": "в",
+        "text": "Os lacrimale"
+      },
+      {
+        "label": "г",
+        "text": "Os ethmoidale"
+      }
+    ],
+    "options": {
+      "а": "Os nasale",
+      "б": "Vоmег",
+      "в": "Os lacrimale",
+      "г": "Os ethmoidale"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 713,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 714,
+    "page": 80,
+    "page_end": 80,
+    "question": "НАЗОВИТЕ КОСТИ, УЧАСТВУЮЩИЕ В ОБРАЗОВАНИИ ЛАТЕРАЛЬНОЙ СТЕНКИ ПОЛОСТИ НОСА:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Os lacrimale"
+      },
+      {
+        "label": "б",
+        "text": "Os zygomaticum"
+      },
+      {
+        "label": "в",
+        "text": "Os ethmoidale"
+      },
+      {
+        "label": "г",
+        "text": "Os palatinum"
+      }
+    ],
+    "options": {
+      "а": "Os lacrimale",
+      "б": "Os zygomaticum",
+      "в": "Os ethmoidale",
+      "г": "Os palatinum"
+    },
+    "correct": [
+      "а",
+      "в",
+      "г"
+    ],
+    "source_key": "а,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 714,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 715,
+    "page": 81,
+    "page_end": 81,
+    "question": "УКАЖИТЕ ВОЗДУХОНОСНЫЕ ПАЗУХИ, КОТОРЫЕ ОТКРЫВАЮТСЯ В СРЕДНИЙ НОСОВОЙ ХОД:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Sinus sphenoidalis"
+      },
+      {
+        "label": "б",
+        "text": "Sinus frontalis"
+      },
+      {
+        "label": "в",
+        "text": "Cellulae ethmoidales anteriores et mediae"
+      },
+      {
+        "label": "г",
+        "text": "Cellulae ethmoidales posteriores"
+      }
+    ],
+    "options": {
+      "а": "Sinus sphenoidalis",
+      "б": "Sinus frontalis",
+      "в": "Cellulae ethmoidales anteriores et mediae",
+      "г": "Cellulae ethmoidales posteriores"
+    },
+    "correct": [
+      "б",
+      "в"
+    ],
+    "source_key": "б,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 715,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 716,
+    "page": 81,
+    "page_end": 81,
+    "question": "НАЗОВИТЕ КОСТИ, ОБРАЗУЮЩИЕ КОСТНОЕ НЕБО:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Vomer"
+      },
+      {
+        "label": "б",
+        "text": "Os palatinum"
+      },
+      {
+        "label": "в",
+        "text": "Os hyoideum"
+      },
+      {
+        "label": "г",
+        "text": "Махillа"
+      }
+    ],
+    "options": {
+      "а": "Vomer",
+      "б": "Os palatinum",
+      "в": "Os hyoideum",
+      "г": "Махillа"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 716,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 717,
+    "page": 81,
+    "page_end": 81,
+    "question": "УКАЖИТЕ СТРУКТУРЫ, ОГРАНИЧИВАЮЩИЕ MEATUS NASI SUPERIOR:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Concha nasalis suprema"
+      },
+      {
+        "label": "б",
+        "text": "Concha nasalis media"
+      },
+      {
+        "label": "в",
+        "text": "Concha nasalis inferior"
+      },
+      {
+        "label": "г",
+        "text": "Соnсhа nasalis superior"
+      }
+    ],
+    "options": {
+      "а": "Concha nasalis suprema",
+      "б": "Concha nasalis media",
+      "в": "Concha nasalis inferior",
+      "г": "Соnсhа nasalis superior"
+    },
+    "correct": [
+      "б",
+      "г"
+    ],
+    "source_key": "б,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 717,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 765,
+    "page": 86,
+    "page_end": 86,
+    "question": "УКАЖИТЕ СТРУКТУРЫ, КОТОРЫЕ ВХОДЯТ В СОСТАВ ПОГРАНИЧНОЙ ЛИНИИ, ОТДЕЛЯЮЩЕЙ БОЛЬШОЙ ТАЗ ОТ МАЛОГО:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "мыс крестца"
+      },
+      {
+        "label": "б",
+        "text": "дугообразная линия подвздошной кости"
+      },
+      {
+        "label": "в",
+        "text": "нижний край лобкового симфиза"
+      },
+      {
+        "label": "г",
+        "text": "верхушка крестца"
+      }
+    ],
+    "options": {
+      "а": "мыс крестца",
+      "б": "дугообразная линия подвздошной кости",
+      "в": "нижний край лобкового симфиза",
+      "г": "верхушка крестца"
+    },
+    "correct": [
+      "а",
+      "б"
+    ],
+    "source_key": "а,б",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 765,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 775,
+    "page": 87,
+    "page_end": 87,
+    "question": "УКАЖИТЕ ОСНОВНЫЕ ТОЧКИ ОПОРЫ НА ПОДОШВЕННОЙ ПОВЕРХНОСТИ СТОПЫ",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "пяточный бугор"
+      },
+      {
+        "label": "б",
+        "text": "головка 1-ой плюсневой кости"
+      },
+      {
+        "label": "в",
+        "text": "головка 2-ой плюсневой кости"
+      },
+      {
+        "label": "г",
+        "text": "головка 5-ой плюсневой кости"
+      }
+    ],
+    "options": {
+      "а": "пяточный бугор",
+      "б": "головка 1-ой плюсневой кости",
+      "в": "головка 2-ой плюсневой кости",
+      "г": "головка 5-ой плюсневой кости"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в"
+    ],
+    "source_key": "а,б,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 775,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 782,
+    "page": 88,
+    "page_end": 88,
+    "question": "УКАЖИТЕ В КАКИХ ОТДЕЛАХ ПОЗВОНОЧНОГО СТОЛБА ИМЕЕТ МЕСТО ФИЗИОЛОГИЧЕСКИЙ ЛОРДОЗ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "гpудном"
+      },
+      {
+        "label": "б",
+        "text": "шейном"
+      },
+      {
+        "label": "в",
+        "text": "поясничном"
+      },
+      {
+        "label": "г",
+        "text": "крестцовом"
+      }
+    ],
+    "options": {
+      "а": "гpудном",
+      "б": "шейном",
+      "в": "поясничном",
+      "г": "крестцовом"
+    },
+    "correct": [
+      "б",
+      "в"
+    ],
+    "source_key": "б,в",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 782,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 783,
+    "page": 88,
+    "page_end": 88,
+    "question": "УКАЖИТЕ В КАКИХ ОТДЕЛАХ ПОЗВОНОЧНОГО СТОЛБА ИМЕЕТ МЕСТО ФИЗИОЛОГИЧЕСКИЙ КИФОЗ:",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "гpудном"
+      },
+      {
+        "label": "б",
+        "text": "поясничном"
+      },
+      {
+        "label": "в",
+        "text": "шейном"
+      },
+      {
+        "label": "г",
+        "text": "крестцовом"
+      }
+    ],
+    "options": {
+      "а": "гpудном",
+      "б": "поясничном",
+      "в": "шейном",
+      "г": "крестцовом"
+    },
+    "correct": [
+      "а",
+      "г"
+    ],
+    "source_key": "а,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 783,
+    "enabled": true,
+    "topic": "кости"
+  },
+  {
+    "id": 796,
+    "page": 89,
+    "page_end": 89,
+    "question": "УКАЖИТЕ ПРИЗНАКИ ЧЕРЕПА НОВОРОЖДЕННОГО",
+    "source_options": [
+      {
+        "label": "а",
+        "text": "Роднички"
+      },
+      {
+        "label": "б",
+        "text": "Выраженные лобные и тeменные бугры"
+      },
+      {
+        "label": "в",
+        "text": "Слабая пневматизация костей черепа"
+      },
+      {
+        "label": "г",
+        "text": "Отсутствие сосцевидных отростков"
+      }
+    ],
+    "options": {
+      "а": "Роднички",
+      "б": "Выраженные лобные и тeменные бугры",
+      "в": "Слабая пневматизация костей черепа",
+      "г": "Отсутствие сосцевидных отростков"
+    },
+    "correct": [
+      "а",
+      "б",
+      "в",
+      "г"
+    ],
+    "source_key": "а,б,в,г",
+    "source_faithful": true,
+    "source_issue": "",
+    "source_number": 796,
+    "enabled": true,
+    "topic": "кости"
+  }
+]
