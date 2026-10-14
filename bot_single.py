@@ -23,6 +23,7 @@ from telegram.ext import Application, CallbackQueryHandler, CommandHandler, Cont
 
 
 
+
 # Bundled source modules
 """Source-faithful answer labels, including incomplete PDF rows."""
 
@@ -958,6 +959,329 @@ class FeatureUI:
                                self.menu(update.effective_user))
         except (ValueError, IndexError, KeyError):
             await self.say(update, "Кнопка уже недоступна. Откройте нужный раздел заново.", self.menu(update.effective_user))
+
+
+"""Latin flashcards and durable, user-specific practice state."""
+import json
+import random
+from pathlib import Path
+
+EMBEDDED_LATIN_JSON = '{\n  "version": 1,\n  "sources": {\n    "words": "Latin_kartochki_A4-2.pdf: 57 карточек",\n    "sayings": "Фото 1000006323.jpg: 30 крылатых выражений",\n    "medical": "Фото 1000006323.jpg: 17 отдельных медицинских выражений"\n  },\n  "cards": [\n    {\n      "id": "word_01",\n      "collection": "words",\n      "latin": "ala",\n      "translation": "крыло",\n      "genitive": "alae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "ala, alae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 1\n    },\n    {\n      "id": "word_02",\n      "collection": "words",\n      "latin": "angulus",\n      "translation": "угол",\n      "genitive": "anguli",\n      "genitive_ending": "-i",\n      "gender": "m",\n      "declension": "II",\n      "formula": "angulus, anguli m",\n      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",\n      "source_number": 2\n    },\n    {\n      "id": "word_03",\n      "collection": "words",\n      "latin": "aorta",\n      "translation": "аорта",\n      "genitive": "aortae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "aorta, aortae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 3\n    },\n    {\n      "id": "word_04",\n      "collection": "words",\n      "latin": "arcus",\n      "translation": "дуга",\n      "genitive": "arcus",\n      "genitive_ending": "-us",\n      "gender": "m",\n      "declension": "IV",\n      "formula": "arcus, arcus m",\n      "rule": "-us, Gen. -us: обычно m. Исключение: manus, us f (кисть). Не путай с -us, -i и -us, -oris.",\n      "source_number": 4\n    },\n    {\n      "id": "word_05",\n      "collection": "words",\n      "latin": "arteria",\n      "translation": "артерия",\n      "genitive": "arteriae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "arteria, arteriae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 5\n    },\n    {\n      "id": "word_06",\n      "collection": "words",\n      "latin": "brachium",\n      "translation": "плечо",\n      "genitive": "brachii",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "brachium, brachii n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 6\n    },\n    {\n      "id": "word_07",\n      "collection": "words",\n      "latin": "caput",\n      "translation": "голова, головка",\n      "genitive": "capitis",\n      "genitive_ending": "-is",\n      "gender": "n",\n      "declension": "III",\n      "formula": "caput, capitis n",\n      "rule": "Запомни: caput → capit-is, n. По одному -ut надёжно род не определить.",\n      "source_number": 7\n    },\n    {\n      "id": "word_08",\n      "collection": "words",\n      "latin": "cavitas",\n      "translation": "полость",\n      "genitive": "cavitatis",\n      "genitive_ending": "-is",\n      "gender": "f",\n      "declension": "III",\n      "formula": "cavitas, cavitatis f",\n      "rule": "-tas, Gen. -tatis: обычно f. Основа меняется: cavitas → cavitat-is. Gen. -is само по себе род не определяет.",\n      "source_number": 8\n    },\n    {\n      "id": "word_09",\n      "collection": "words",\n      "latin": "concha",\n      "translation": "раковина",\n      "genitive": "conchae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "concha, conchae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 9\n    },\n    {\n      "id": "word_10",\n      "collection": "words",\n      "latin": "costa",\n      "translation": "ребро",\n      "genitive": "costae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "costa, costae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 10\n    },\n    {\n      "id": "word_11",\n      "collection": "words",\n      "latin": "cornu",\n      "translation": "рог",\n      "genitive": "cornus",\n      "genitive_ending": "-us",\n      "gender": "n",\n      "declension": "IV",\n      "formula": "cornu, cornus n",\n      "rule": "-u, Gen. -us: n (cornu, genu). Это правило IV склонения; -us здесь окончание Gen.",\n      "source_number": 11\n    },\n    {\n      "id": "word_12",\n      "collection": "words",\n      "latin": "corpus",\n      "translation": "тело",\n      "genitive": "corporis",\n      "genitive_ending": "-is",\n      "gender": "n",\n      "declension": "III",\n      "formula": "corpus, corporis n",\n      "rule": "-us, Gen. -oris: n (corpus → corpor-is). Не путай с -us, -i m и -us, -us m.",\n      "source_number": 12\n    },\n    {\n      "id": "word_13",\n      "collection": "words",\n      "latin": "cranium",\n      "translation": "череп",\n      "genitive": "cranii",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "cranium, cranii n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 13\n    },\n    {\n      "id": "word_14",\n      "collection": "words",\n      "latin": "crista",\n      "translation": "гребень",\n      "genitive": "cristae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "crista, cristae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 14\n    },\n    {\n      "id": "word_15",\n      "collection": "words",\n      "latin": "ductus",\n      "translation": "проток",\n      "genitive": "ductus",\n      "genitive_ending": "-us",\n      "gender": "m",\n      "declension": "IV",\n      "formula": "ductus, ductus m",\n      "rule": "-us, Gen. -us: обычно m. Исключение: manus, us f (кисть). Не путай с -us, -i и -us, -oris.",\n      "source_number": 15\n    },\n    {\n      "id": "word_16",\n      "collection": "words",\n      "latin": "incisura",\n      "translation": "вырезка",\n      "genitive": "incisurae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "incisura, incisurae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 16\n    },\n    {\n      "id": "word_17",\n      "collection": "words",\n      "latin": "lamina",\n      "translation": "пластинка",\n      "genitive": "laminae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "lamina, laminae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 17\n    },\n    {\n      "id": "word_18",\n      "collection": "words",\n      "latin": "ligamentum",\n      "translation": "связка",\n      "genitive": "ligamenti",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "ligamentum, ligamenti n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 18\n    },\n    {\n      "id": "word_19",\n      "collection": "words",\n      "latin": "linea",\n      "translation": "линия",\n      "genitive": "lineae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "linea, lineae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 19\n    },\n    {\n      "id": "word_20",\n      "collection": "words",\n      "latin": "lingua",\n      "translation": "язык",\n      "genitive": "linguae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "lingua, linguae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 20\n    },\n    {\n      "id": "word_21",\n      "collection": "words",\n      "latin": "mandibula",\n      "translation": "нижняя челюсть",\n      "genitive": "mandibulae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "mandibula, mandibulae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 21\n    },\n    {\n      "id": "word_22",\n      "collection": "words",\n      "latin": "maxilla",\n      "translation": "верхняя челюсть",\n      "genitive": "maxillae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "maxilla, maxillae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 22\n    },\n    {\n      "id": "word_23",\n      "collection": "words",\n      "latin": "meatus",\n      "translation": "проход, ход",\n      "genitive": "meatus",\n      "genitive_ending": "-us",\n      "gender": "m",\n      "declension": "IV",\n      "formula": "meatus, meatus m",\n      "rule": "-us, Gen. -us: обычно m. Исключение: manus, us f (кисть). Не путай с -us, -i и -us, -oris.",\n      "source_number": 23\n    },\n    {\n      "id": "word_24",\n      "collection": "words",\n      "latin": "musculus",\n      "translation": "мышца",\n      "genitive": "musculi",\n      "genitive_ending": "-i",\n      "gender": "m",\n      "declension": "II",\n      "formula": "musculus, musculi m",\n      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",\n      "source_number": 24\n    },\n    {\n      "id": "word_25",\n      "collection": "words",\n      "latin": "orbita",\n      "translation": "глазница",\n      "genitive": "orbitae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "orbita, orbitae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 25\n    },\n    {\n      "id": "word_26",\n      "collection": "words",\n      "latin": "os",\n      "translation": "кость",\n      "genitive": "ossis",\n      "genitive_ending": "-is",\n      "gender": "n",\n      "declension": "III",\n      "formula": "os, ossis n",\n      "rule": "Запомни: os → oss-is, n (кость). Не путай: os, oris n = рот.",\n      "source_number": 26\n    },\n    {\n      "id": "word_27",\n      "collection": "words",\n      "latin": "raphe",\n      "translation": "шов (место сращения мягких тканей, сухожилий, мышц)",\n      "genitive": "raphes",\n      "genitive_ending": "-es",\n      "gender": "f",\n      "declension": "I (греч.)",\n      "formula": "raphe, raphes f",\n      "rule": "Греческое -e, Gen. -es: здесь f. Особую форму raphe → raphes запомни.",\n      "source_number": 27\n    },\n    {\n      "id": "word_28",\n      "collection": "words",\n      "latin": "scapula",\n      "translation": "лопатка",\n      "genitive": "scapulae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "scapula, scapulae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 28\n    },\n    {\n      "id": "word_29",\n      "collection": "words",\n      "latin": "septum",\n      "translation": "перегородка",\n      "genitive": "septi",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "septum, septi n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 29\n    },\n    {\n      "id": "word_30",\n      "collection": "words",\n      "latin": "spina",\n      "translation": "ость",\n      "genitive": "spinae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "spina, spinae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 30\n    },\n    {\n      "id": "word_31",\n      "collection": "words",\n      "latin": "sulcus",\n      "translation": "борозда",\n      "genitive": "sulci",\n      "genitive_ending": "-i",\n      "gender": "m",\n      "declension": "II",\n      "formula": "sulcus, sulci m",\n      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",\n      "source_number": 31\n    },\n    {\n      "id": "word_32",\n      "collection": "words",\n      "latin": "tympanum",\n      "translation": "барабан",\n      "genitive": "tympani",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "tympanum, tympani n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 32\n    },\n    {\n      "id": "word_33",\n      "collection": "words",\n      "latin": "ulna",\n      "translation": "локтевая кость",\n      "genitive": "ulnae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "ulna, ulnae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 33\n    },\n    {\n      "id": "word_34",\n      "collection": "words",\n      "latin": "vena",\n      "translation": "вена",\n      "genitive": "venae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "vena, venae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 34\n    },\n    {\n      "id": "word_35",\n      "collection": "words",\n      "latin": "vertebra",\n      "translation": "позвонок",\n      "genitive": "vertebrae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "vertebra, vertebrae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 35\n    },\n    {\n      "id": "word_36",\n      "collection": "words",\n      "latin": "calcaneus",\n      "translation": "пяточная кость",\n      "genitive": "calcanei",\n      "genitive_ending": "-i",\n      "gender": "m",\n      "declension": "II",\n      "formula": "calcaneus, calcanei m",\n      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",\n      "source_number": 36\n    },\n    {\n      "id": "word_37",\n      "collection": "words",\n      "latin": "crus",\n      "translation": "ножка, голень",\n      "genitive": "cruris",\n      "genitive_ending": "-is",\n      "gender": "n",\n      "declension": "III",\n      "formula": "crus, cruris n",\n      "rule": "Запомни: crus → crur-is, n. Окончание -us не всегда означает мужской род.",\n      "source_number": 37\n    },\n    {\n      "id": "word_38",\n      "collection": "words",\n      "latin": "digitus",\n      "translation": "палец",\n      "genitive": "digiti",\n      "genitive_ending": "-i",\n      "gender": "m",\n      "declension": "II",\n      "formula": "digitus, digiti m",\n      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",\n      "source_number": 38\n    },\n    {\n      "id": "word_39",\n      "collection": "words",\n      "latin": "genu",\n      "translation": "колено",\n      "genitive": "genus",\n      "genitive_ending": "-us",\n      "gender": "n",\n      "declension": "IV",\n      "formula": "genu, genus n",\n      "rule": "-u, Gen. -us: n (cornu, genu). Это правило IV склонения; -us здесь окончание Gen.",\n      "source_number": 39\n    },\n    {\n      "id": "word_40",\n      "collection": "words",\n      "latin": "humerus",\n      "translation": "плечевая кость",\n      "genitive": "humeri",\n      "genitive_ending": "-i",\n      "gender": "m",\n      "declension": "II",\n      "formula": "humerus, humeri m",\n      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",\n      "source_number": 40\n    },\n    {\n      "id": "word_41",\n      "collection": "words",\n      "latin": "manubrium",\n      "translation": "рукоятка",\n      "genitive": "manubrii",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "manubrium, manubrii n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 41\n    },\n    {\n      "id": "word_42",\n      "collection": "words",\n      "latin": "patella",\n      "translation": "надколенник",\n      "genitive": "patellae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "patella, patellae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 42\n    },\n    {\n      "id": "word_43",\n      "collection": "words",\n      "latin": "radius",\n      "translation": "лучевая кость",\n      "genitive": "radii",\n      "genitive_ending": "-i",\n      "gender": "m",\n      "declension": "II",\n      "formula": "radius, radii m",\n      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",\n      "source_number": 43\n    },\n    {\n      "id": "word_44",\n      "collection": "words",\n      "latin": "sternum",\n      "translation": "грудина",\n      "genitive": "sterni",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "sternum, sterni n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 44\n    },\n    {\n      "id": "word_45",\n      "collection": "words",\n      "latin": "sutura",\n      "translation": "шов (костный)",\n      "genitive": "suturae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "sutura, suturae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 45\n    },\n    {\n      "id": "word_46",\n      "collection": "words",\n      "latin": "tuba",\n      "translation": "труба",\n      "genitive": "tubae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "tuba, tubae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 46\n    },\n    {\n      "id": "word_47",\n      "collection": "words",\n      "latin": "alveolus",\n      "translation": "альвеола",\n      "genitive": "alveoli",\n      "genitive_ending": "-i",\n      "gender": "m",\n      "declension": "II",\n      "formula": "alveolus, alveoli m",\n      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",\n      "source_number": 47\n    },\n    {\n      "id": "word_48",\n      "collection": "words",\n      "latin": "bucca",\n      "translation": "щека",\n      "genitive": "buccae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "bucca, buccae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 48\n    },\n    {\n      "id": "word_49",\n      "collection": "words",\n      "latin": "enamelum",\n      "translation": "зубная эмаль",\n      "genitive": "enameli",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "enamelum, enameli n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 49\n    },\n    {\n      "id": "word_50",\n      "collection": "words",\n      "latin": "frenulum",\n      "translation": "уздечка",\n      "genitive": "frenuli",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "frenulum, frenuli n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 50\n    },\n    {\n      "id": "word_51",\n      "collection": "words",\n      "latin": "gingiva",\n      "translation": "десна",\n      "genitive": "gingivae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "gingiva, gingivae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 51\n    },\n    {\n      "id": "word_52",\n      "collection": "words",\n      "latin": "jugum",\n      "translation": "возвышение",\n      "genitive": "jugi",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "jugum, jugi n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 52\n    },\n    {\n      "id": "word_53",\n      "collection": "words",\n      "latin": "labium",\n      "translation": "губа",\n      "genitive": "labii",\n      "genitive_ending": "-i",\n      "gender": "n",\n      "declension": "II",\n      "formula": "labium, labii n",\n      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",\n      "source_number": 53\n    },\n    {\n      "id": "word_54",\n      "collection": "words",\n      "latin": "lingula",\n      "translation": "язычок",\n      "genitive": "lingulae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "lingula, lingulae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 54\n    },\n    {\n      "id": "word_55",\n      "collection": "words",\n      "latin": "papilla",\n      "translation": "сосочек",\n      "genitive": "papillae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "papilla, papillae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 55\n    },\n    {\n      "id": "word_56",\n      "collection": "words",\n      "latin": "protuberantia",\n      "translation": "выступ",\n      "genitive": "protuberantiae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "protuberantia, protuberantiae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 56\n    },\n    {\n      "id": "word_57",\n      "collection": "words",\n      "latin": "pulpa",\n      "translation": "пульпа, мякоть",\n      "genitive": "pulpae",\n      "genitive_ending": "-ae",\n      "gender": "f",\n      "declension": "I",\n      "formula": "pulpa, pulpae f",\n      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",\n      "source_number": 57\n    },\n    {\n      "id": "sayings_01",\n      "collection": "sayings",\n      "latin": "Alma mater",\n      "translation": "Мать-кормилица (об университете)",\n      "source_number": 1\n    },\n    {\n      "id": "sayings_02",\n      "collection": "sayings",\n      "latin": "Cognosce te ipsum",\n      "translation": "Познай самого себя",\n      "source_number": 2\n    },\n    {\n      "id": "sayings_03",\n      "collection": "sayings",\n      "latin": "Carpe diem",\n      "translation": "Живи сейчас",\n      "source_number": 3\n    },\n    {\n      "id": "sayings_04",\n      "collection": "sayings",\n      "latin": "Nota bene (NB)",\n      "translation": "Обрати внимание, запомни хорошо",\n      "source_number": 4\n    },\n    {\n      "id": "sayings_05",\n      "collection": "sayings",\n      "latin": "Alter ego",\n      "translation": "Второе я",\n      "source_number": 5\n    },\n    {\n      "id": "sayings_06",\n      "collection": "sayings",\n      "latin": "Cogito, ergo sum",\n      "translation": "Я мыслю, следовательно, существую",\n      "source_number": 6\n    },\n    {\n      "id": "sayings_07",\n      "collection": "sayings",\n      "latin": "Tabula rasa",\n      "translation": "Чистая доска",\n      "source_number": 7\n    },\n    {\n      "id": "sayings_08",\n      "collection": "sayings",\n      "latin": "Post scriptum (P.S.)",\n      "translation": "После написанного",\n      "source_number": 8\n    },\n    {\n      "id": "sayings_09",\n      "collection": "sayings",\n      "latin": "Ignorantia non est argumentum",\n      "translation": "Невежество не аргумент",\n      "source_number": 9\n    },\n    {\n      "id": "sayings_10",\n      "collection": "sayings",\n      "latin": "Errare humanum est",\n      "translation": "Человеку свойственно ошибаться",\n      "source_number": 10\n    },\n    {\n      "id": "sayings_11",\n      "collection": "sayings",\n      "latin": "Volens - nolens",\n      "translation": "Волей-неволей",\n      "source_number": 11\n    },\n    {\n      "id": "sayings_12",\n      "collection": "sayings",\n      "latin": "Omne nimium nocet",\n      "translation": "Всякое излишество вредно",\n      "source_number": 12\n    },\n    {\n      "id": "sayings_13",\n      "collection": "sayings",\n      "latin": "Per aspera ad astra",\n      "translation": "Через тернии к звездам",\n      "source_number": 13\n    },\n    {\n      "id": "sayings_14",\n      "collection": "sayings",\n      "latin": "Sapienti sat",\n      "translation": "Разумному достаточно",\n      "source_number": 14\n    },\n    {\n      "id": "sayings_15",\n      "collection": "sayings",\n      "latin": "Qualis vita, finis ita",\n      "translation": "Какова жизнь, таков и конец",\n      "source_number": 15\n    },\n    {\n      "id": "sayings_16",\n      "collection": "sayings",\n      "latin": "Veni, vidi, vici",\n      "translation": "Пришел, увидел, победил",\n      "source_number": 16\n    },\n    {\n      "id": "sayings_17",\n      "collection": "sayings",\n      "latin": "Ubi concordia, ibi victoria",\n      "translation": "Где согласие, там победа",\n      "source_number": 17\n    },\n    {\n      "id": "sayings_18",\n      "collection": "sayings",\n      "latin": "Consuetudo est altera natura",\n      "translation": "Привычка — вторая натура",\n      "source_number": 18\n    },\n    {\n      "id": "sayings_19",\n      "collection": "sayings",\n      "latin": "Fiat lux",\n      "translation": "Да будет свет",\n      "source_number": 19\n    },\n    {\n      "id": "sayings_20",\n      "collection": "sayings",\n      "latin": "Mea culpa",\n      "translation": "Моя вина",\n      "source_number": 20\n    },\n    {\n      "id": "sayings_21",\n      "collection": "sayings",\n      "latin": "Aut bene, aut nihil",\n      "translation": "Или хорошо, или ничего",\n      "source_number": 21\n    },\n    {\n      "id": "sayings_22",\n      "collection": "sayings",\n      "latin": "Repetitio est mater studiorum",\n      "translation": "Повторение — мать учения",\n      "source_number": 22\n    },\n    {\n      "id": "sayings_23",\n      "collection": "sayings",\n      "latin": "O tempora, o mores!",\n      "translation": "О времена, о нравы!",\n      "source_number": 23\n    },\n    {\n      "id": "sayings_24",\n      "collection": "sayings",\n      "latin": "De facto, de jure",\n      "translation": "Фактически, юридически",\n      "source_number": 24\n    },\n    {\n      "id": "sayings_25",\n      "collection": "sayings",\n      "latin": "Terra incognita",\n      "translation": "Неизвестная земля",\n      "source_number": 25\n    },\n    {\n      "id": "sayings_26",\n      "collection": "sayings",\n      "latin": "Memento mori",\n      "translation": "Помни о смерти",\n      "source_number": 26\n    },\n    {\n      "id": "sayings_27",\n      "collection": "sayings",\n      "latin": "Dura lex, sed lex",\n      "translation": "Закон суров, но это закон",\n      "source_number": 27\n    },\n    {\n      "id": "sayings_28",\n      "collection": "sayings",\n      "latin": "Aliis inserviendo consumor",\n      "translation": "Светя другим, сгораю сам",\n      "source_number": 28\n    },\n    {\n      "id": "sayings_29",\n      "collection": "sayings",\n      "latin": "Noli nocere",\n      "translation": "Не навреди",\n      "source_number": 29\n    },\n    {\n      "id": "sayings_30",\n      "collection": "sayings",\n      "latin": "Invia est in medicina via sine lingua latina",\n      "translation": "Непроходим в медицине путь без латинского языка",\n      "source_number": 30\n    },\n    {\n      "id": "medical_01",\n      "collection": "medical",\n      "latin": "Casus ordinarius",\n      "translation": "Обычный случай",\n      "source_number": 1\n    },\n    {\n      "id": "medical_02",\n      "collection": "medical",\n      "latin": "Casus extraordinarius",\n      "translation": "Необычный случай",\n      "source_number": 2\n    },\n    {\n      "id": "medical_03",\n      "collection": "medical",\n      "latin": "Sedes morbi",\n      "translation": "Место болезни",\n      "source_number": 3\n    },\n    {\n      "id": "medical_04",\n      "collection": "medical",\n      "latin": "Exitus letalis",\n      "translation": "Смертельный исход",\n      "source_number": 4\n    },\n    {\n      "id": "medical_05",\n      "collection": "medical",\n      "latin": "Anamnesis vitae",\n      "translation": "Сведения о жизни",\n      "source_number": 5\n    },\n    {\n      "id": "medical_06",\n      "collection": "medical",\n      "latin": "Anamnesis morbi",\n      "translation": "Сведения о болезни",\n      "source_number": 6\n    },\n    {\n      "id": "medical_07",\n      "collection": "medical",\n      "latin": "Habitus aegroti",\n      "translation": "Общее состояние больного",\n      "source_number": 7\n    },\n    {\n      "id": "medical_08",\n      "collection": "medical",\n      "latin": "Status praesens",\n      "translation": "Настоящее состояние (состояние в момент обследования)",\n      "source_number": 8\n    },\n    {\n      "id": "medical_09",\n      "collection": "medical",\n      "latin": "Praesente medico",\n      "translation": "В присутствии врача",\n      "source_number": 9\n    },\n    {\n      "id": "medical_10",\n      "collection": "medical",\n      "latin": "Absente aegroto",\n      "translation": "В отсутствии больного",\n      "source_number": 10\n    },\n    {\n      "id": "medical_11",\n      "collection": "medical",\n      "latin": "Bene diagnoscitur, bene curatur",\n      "translation": "Хорошо распознается, хорошо лечится",\n      "source_number": 11\n    },\n    {\n      "id": "medical_12",\n      "collection": "medical",\n      "latin": "Rubor, tumor, calor, dolor et functio laesa",\n      "translation": "Краснота, опухание, жар, боль и ухудшение функции (пять классических признаков воспаления)",\n      "source_number": 12\n    },\n    {\n      "id": "medical_13",\n      "collection": "medical",\n      "latin": "Facies Hippocratica",\n      "translation": "Гиппократово лицо (лицо умирающего)",\n      "source_number": 13\n    },\n    {\n      "id": "medical_14",\n      "collection": "medical",\n      "latin": "Prognosis bona",\n      "translation": "Прогноз хороший",\n      "source_number": 14\n    },\n    {\n      "id": "medical_15",\n      "collection": "medical",\n      "latin": "Prognosis optima",\n      "translation": "Прогноз очень хороший",\n      "source_number": 15\n    },\n    {\n      "id": "medical_16",\n      "collection": "medical",\n      "latin": "Prognosis mala",\n      "translation": "Прогноз плохой",\n      "source_number": 16\n    },\n    {\n      "id": "medical_17",\n      "collection": "medical",\n      "latin": "Prognosis pessima",\n      "translation": "Прогноз очень плохой",\n      "source_number": 17\n    }\n  ]\n}\n'
+LATIN = "📖 Латынь"
+LATIN_COLLECTIONS = {"words": "Слова и словарные формы", "sayings": "Крылатые выражения", "medical": "Медицинские выражения"}
+LATIN_GENDERS = {"m": "мужской (masculinum)", "f": "женский (femininum)", "n": "средний (neutrum)"}
+LATIN_FIELDS = {"translation": "Латынь → русский", "latin": "Русский → латынь", "genitive": "Gen. sg.", "gender": "Род", "formula": "Полная словарная форма"}
+
+
+def load_latin_cards(path=None):
+    raw = EMBEDDED_LATIN_JSON
+    if raw is None:
+        raw = Path(path or Path(__file__).resolve().parent / "latin_data.json").read_text(encoding="utf-8-sig")
+    cards = json.loads(raw)["cards"]
+    bank = {}
+    for card in cards:
+        cid = card["id"]
+        if cid in bank or card["collection"] not in LATIN_COLLECTIONS:
+            raise ValueError("Invalid Latin card ID or collection")
+        if not card["latin"].strip() or not card["translation"].strip():
+            raise ValueError("Empty Latin card")
+        if card["collection"] == "words":
+            if card["gender"] not in LATIN_GENDERS or not card["genitive"] or not card["rule"]:
+                raise ValueError("Incomplete dictionary card")
+            if card["formula"] != f"{card['latin']}, {card['genitive']} {card['gender']}":
+                raise ValueError("Invalid full dictionary form")
+        bank[cid] = card
+    if not bank:
+        raise ValueError("No Latin cards")
+    return bank
+
+
+def latin_details(card):
+    lines = [card["latin"], "Перевод: " + card["translation"]]
+    if card["collection"] == "words":
+        lines += ["", "Полная словарная форма: " + card["formula"],
+                  "Nom. sg.: " + card["latin"], "Gen. sg.: " + card["genitive"],
+                  "Окончание Gen.: " + card["genitive_ending"],
+                  "Род: " + card["gender"] + " — " + LATIN_GENDERS[card["gender"]],
+                  "Склонение: " + card["declension"], "", "Правило / исключения:", card["rule"]]
+    return "\n".join(lines)
+
+
+class LatinStore:
+    def __init__(self, store, cards=None, rng=None):
+        self.db = store.db
+        self.cards = cards if cards is not None else load_latin_cards()
+        self.rng = rng or random.Random()
+        self.db.executescript("""
+            CREATE TABLE IF NOT EXISTS latin_sessions (
+                user_id INTEGER PRIMARY KEY REFERENCES users(user_id), state TEXT NOT NULL
+            );
+            CREATE TABLE IF NOT EXISTS latin_results (
+                user_id INTEGER NOT NULL REFERENCES users(user_id), card_id TEXT NOT NULL,
+                field TEXT NOT NULL, attempts INTEGER NOT NULL DEFAULT 0,
+                correct INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY(user_id, card_id, field)
+            );
+        """)
+
+    def state(self, uid):
+        row = self.db.execute("SELECT state FROM latin_sessions WHERE user_id=?", (uid,)).fetchone()
+        return json.loads(row[0]) if row else {"session": None, "panel": None}
+
+    def save(self, uid, state):
+        with self.db:
+            self.db.execute("INSERT INTO latin_sessions VALUES (?,?) ON CONFLICT(user_id) DO UPDATE SET state=excluded.state", (uid, json.dumps(state, ensure_ascii=False)))
+
+    def invalidate(self, uid):
+        state = self.state(uid)
+        state["panel"] = None
+        self.save(uid, state)
+
+    def new(self, uid, collection, kind, field):
+        if collection not in LATIN_COLLECTIONS or kind not in ("cards", "test") or field not in LATIN_FIELDS:
+            raise ValueError("Invalid Latin mode")
+        if collection != "words" and field not in ("translation", "latin"):
+            raise ValueError("Expressions have no single noun gender or genitive")
+        ids = [cid for cid, c in self.cards.items() if c["collection"] == collection]
+        if kind == "test":
+            self.rng.shuffle(ids)
+        session = {"collection": collection, "kind": kind, "field": field, "ids": ids,
+                   "index": 0, "revealed": False, "answered": False, "correct": 0, "attempts": 0}
+        if kind == "test":
+            self.prepare(session)
+        state = self.state(uid)
+        state["session"] = session
+        self.save(uid, state)
+        return session
+
+    def value(self, card, field):
+        if field == "gender":
+            return card["gender"] + " — " + LATIN_GENDERS[card["gender"]]
+        return card[field]
+
+    def genitive_choices(self, card):
+        ending = card["genitive_ending"].lstrip("-")
+        stem = card["genitive"][:-len(ending)]
+        return list(dict.fromkeys([card["genitive"]] + [stem + e for e in ("ae", "i", "is", "us", "es")]))
+
+    def prepare(self, session):
+        card = self.cards[session["ids"][session["index"]]]
+        field = session["field"]
+        expected = self.value(card, field)
+        if field == "gender":
+            candidates = [g + " — " + name for g, name in LATIN_GENDERS.items()]
+        elif field == "genitive":
+            candidates = self.genitive_choices(card)
+        elif field == "formula":
+            wrong_gen = next(g for g in self.genitive_choices(card) if g != card["genitive"])
+            candidates = [f"{card['latin']}, {card['genitive']} {g}" for g in LATIN_GENDERS]
+            candidates += [f"{card['latin']}, {wrong_gen} {card['gender']}"]
+        else:
+            candidates = [self.value(c, field) for c in self.cards.values() if c["collection"] == session["collection"]]
+        wrong = list(dict.fromkeys(v for v in candidates if v != expected))
+        choices = [expected] + self.rng.sample(wrong, min(3, len(wrong)))
+        self.rng.shuffle(choices)
+        session.update(choices=choices, expected=expected, answered=False, chosen=None, revealed=False)
+
+    def answer(self, uid, option):
+        state = self.state(uid)
+        session = state["session"]
+        if not session or session["kind"] != "test" or session["answered"] or session["index"] >= len(session["ids"]):
+            return None
+        if not 0 <= option < len(session["choices"]):
+            return None
+        correct = session["choices"][option] == session["expected"]
+        session.update(answered=True, chosen=option)
+        session["attempts"] += 1
+        session["correct"] += int(correct)
+        cid = session["ids"][session["index"]]
+        with self.db:
+            self.db.execute("""INSERT INTO latin_results VALUES (?,?,?,1,?)
+                ON CONFLICT(user_id,card_id,field) DO UPDATE SET attempts=attempts+1, correct=correct+excluded.correct""",
+                (uid, cid, session["field"], int(correct)))
+            self.db.execute("UPDATE latin_sessions SET state=? WHERE user_id=?", (json.dumps(state, ensure_ascii=False), uid))
+        return correct
+
+    def summary(self, uid):
+        row = self.db.execute("SELECT COALESCE(SUM(attempts),0), COALESCE(SUM(correct),0) FROM latin_results WHERE user_id=?", (uid,)).fetchone()
+        return {"attempts": row[0], "correct": row[1], "wrong": row[0]-row[1]}
+
+
+"""Latin routes kept separate from the osteology question bank."""
+import secrets
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.error import BadRequest
+
+LATIN_RULES = """📘 Как читать словарную форму
+
+Полная форма: ala, alae f.
+ala — Nom. sg. (именительный падеж, единственное число).
+alae — Gen. sg. (родительный падеж, единственное число).
+f — женский род; m — мужской; n — средний.
+
+Склонение определяют по Gen. sg.:
+I — -ae; II — -i; III — -is; IV — -us; V — -ei.
+Греческое raphe, raphes f — особая форма I склонения.
+
+Основные подсказки:
+-a, -ae — обычно f; poeta, nauta — m.
+-us, -i — обычно m; humus — f, virus — n.
+-um, -i — n.
+-us, -us — обычно m; manus — f.
+-u, -us — n: cornu, cornus; genu, genus.
+-us, -oris — n: corpus, corporis.
+-tas, -tatis — обычно f: cavitas, cavitatis.
+
+Отдельно запомни:
+caput, capitis n; crus, cruris n; os, ossis n (кость).
+os, oris n — рот, другое слово.
+Латинский род не определяют по русскому переводу.
+
+У каждой словарной карточки есть свое правило и исключения из PDF."""
+
+
+class LatinUI:
+    async def _latin_panel(self, update, text, rows, edit=False):
+        uid = update.effective_user.id
+        state = self.latin.state(uid)
+        token = secrets.token_hex(4)
+        buttons = [[InlineKeyboardButton(label, callback_data=f"lt:{token}:{action}") for label, action in row] for row in rows]
+        markup = InlineKeyboardMarkup(buttons)
+        if edit and update.callback_query:
+            try:
+                await update.callback_query.edit_message_text(text=text, reply_markup=markup)
+            except BadRequest as e:
+                if "message is not modified" not in str(e).lower():
+                    raise
+            mid = update.callback_query.message.message_id
+        else:
+            message = await self.say(update, text, markup)
+            mid = message.message_id
+        state["panel"] = {"token": token, "message_id": mid}
+        self.latin.save(uid, state)
+
+    async def latin_home(self, update, context, edit=False):
+        summary = self.latin.summary(update.effective_user.id)
+        counts = {group: sum(c['collection']==group for c in self.latin.cards.values()) for group in LATIN_COLLECTIONS}
+        text = ("📖 Латынь\n\n" + "\n".join(f"{name}: {counts[group]}" for group, name in LATIN_COLLECTIONS.items())
+                + f"\n\nПроверено: {summary['attempts']} · верно: {summary['correct']} · ошибок: {summary['wrong']}\n"
+                + "Карточки открывают перевод, полную словарную форму, род и правило. Тесты сохраняют личные результаты.")
+        rows = [[(name, f"set:{group}")] for group, name in LATIN_COLLECTIONS.items()]
+        session = self.latin.state(update.effective_user.id)["session"]
+        if session and session["index"] < len(session["ids"]):
+            rows.append([("▶️ Продолжить латынь", "resume")])
+        rows += [[("📘 Правила и исключения", "rules")], [("⬅️ Главное меню", "exit")]]
+        await self._latin_panel(update, text, rows, edit)
+
+    async def latin_collection(self, update, group, edit=True):
+        rows = [[("Карточки: латынь → русский", f"new:{group}:cards:translation")],
+                [("Карточки: русский → латынь", f"new:{group}:cards:latin")],
+                [("Тест: перевод на русский", f"new:{group}:test:translation")],
+                [("Тест: перевод на латынь", f"new:{group}:test:latin")]]
+        if group == "words":
+            rows += [[("Тест: полная словарная форма", "new:words:test:formula")],
+                     [("Тест: Gen. sg.", "new:words:test:genitive"), ("Тест: род", "new:words:test:gender")]]
+        rows += [[("⬅️ Разделы латыни", "home")]]
+        await self._latin_panel(update, "📖 " + LATIN_COLLECTIONS[group] + "\nВыбери способ изучения.", rows, edit)
+
+    async def latin_session(self, update, context, edit=True):
+        state = self.latin.state(update.effective_user.id)
+        s = state["session"]
+        if not s:
+            await self.latin_home(update, context, edit)
+            return
+        if s["index"] >= len(s["ids"]):
+            text = f"🏁 Раздел завершён: {LATIN_COLLECTIONS[s['collection']]}"
+            if s["kind"] == "test":
+                text += f"\nВерно: {s['correct']} из {s['attempts']}."
+            rows = [[("🔄 Заново", f"new:{s['collection']}:{s['kind']}:{s['field']}")], [("⬅️ Разделы латыни", "home")]]
+            await self._latin_panel(update, text, rows, edit)
+            return
+        card = self.latin.cards[s["ids"][s["index"]]]
+        header = f"📖 {LATIN_COLLECTIONS[s['collection']]} · {s['index']+1}/{len(s['ids'])}\n\n"
+        rows = []
+        if s["kind"] == "cards":
+            prompt = card["translation"] if s["field"] == "latin" else card["latin"]
+            text = header + (latin_details(card) if s["revealed"] else prompt + "\n\nВспомни ответ, затем открой карточку.")
+            rows += [[("🙈 Скрыть ответ" if s["revealed"] else "👁 Показать ответ", "reveal")],
+                     [("◀️ Предыдущая", "prev"), ("Следующая ▶️", "next")]]
+        else:
+            prompt = card["translation"] if s["field"] in ("latin", "formula") else card["latin"]
+            text = header + LATIN_FIELDS[s["field"]] + "\n" + prompt
+            if s["answered"]:
+                ok = s["choices"][s["chosen"]] == s["expected"]
+                text += "\n\n" + ("✅ Верно" if ok else "❌ Неверно") + "\nТвой ответ: " + s["choices"][s["chosen"]]
+                text += "\nПравильный ответ: " + s["expected"] + "\n\n" + latin_details(card)
+                rows.append([("Следующее задание ▶️", "next")])
+            else:
+                # Full choices stay in message text, avoiding Telegram button label truncation.
+                text += "\n\n" + "\n".join(f"{i+1}. {choice}" for i,choice in enumerate(s["choices"]))
+                rows.append([(str(i+1), f"answer:{i}") for i in range(len(s["choices"]))])
+        rows.append([("⏸ Пауза / разделы", "home")])
+        await self._latin_panel(update, text, rows, edit)
+
+    async def latin_callback(self, update, context, parts):
+        query = update.callback_query
+        uid = update.effective_user.id
+        state = self.latin.state(uid)
+        panel = state["panel"]
+        if (len(parts)<3 or not panel or panel["token"]!=parts[1]
+                or panel["message_id"]!=query.message.message_id):
+            await query.answer("Кнопка устарела. Открой /latin.")
+            return
+        action = parts[2]
+        if action == "answer":
+            try:
+                option = int(parts[3])
+            except (ValueError, IndexError):
+                await query.answer("Некорректный ответ.")
+                return
+            ok = self.latin.answer(uid, option)
+            if ok is None:
+                await query.answer("Этот ответ уже проверен или недоступен.")
+                return
+            await query.answer("Верно!" if ok else "Показан правильный ответ.")
+            await self.latin_session(update, context)
+            return
+        if action in ("reveal", "prev", "next"):
+            s = state["session"]
+            if not s or s["index"] >= len(s["ids"]):
+                await query.answer("Открой раздел заново.")
+                return
+            if action == "reveal" and s["kind"] == "cards":
+                s["revealed"] = not s["revealed"]
+            elif action == "prev" and s["kind"] == "cards":
+                s["index"] = max(0,s["index"]-1)
+                s["revealed"] = False
+            elif action == "next" and (s["kind"] == "cards" or s["answered"]):
+                s["index"] += 1
+                s["revealed"] = False
+                if s["kind"] == "test" and s["index"] < len(s["ids"]):
+                    self.latin.prepare(s)
+            else:
+                await query.answer("Сначала ответь на задание.")
+                return
+            self.latin.save(uid, state)
+        await query.answer()
+        if action in ("reveal", "prev", "next", "resume"):
+            await self.latin_session(update, context)
+        elif action == "set" and len(parts)==4 and parts[3] in LATIN_COLLECTIONS:
+            await self.latin_collection(update, parts[3])
+        elif action == "new" and len(parts)==6:
+            try:
+                self.latin.new(uid, parts[3], parts[4], parts[5])
+            except ValueError:
+                await self.latin_home(update, context, True)
+                return
+            await self.latin_session(update, context)
+        elif action == "rules":
+            await self._latin_panel(update, LATIN_RULES, [[("⬅️ Разделы латыни", "home")]], True)
+        elif action == "exit":
+            self.latin.invalidate(uid)
+            await query.edit_message_reply_markup(reply_markup=None)
+            await self.say(update, "Главное меню. Латынь сохранена в своём разделе.", self.menu(update.effective_user))
+        else:
+            await self.latin_home(update, context, True)
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -5645,10 +5969,11 @@ def question_view(bank, state):
     return "\n".join(lines), InlineKeyboardMarkup(buttons)
 
 
-class Bot(FeatureUI):
+class Bot(FeatureUI, LatinUI):
     def __init__(self, store, bank, admin_id=None):
         self.store, self.bank, self.admin_id = store, bank, admin_id
         self.quiz = Quiz(store, bank)
+        self.latin = LatinStore(store)
         self.features = FeatureStore(store, bank, self.quiz.canonical)
         self.store.features = self.features
         self.learning = Learning(store, self.quiz)
@@ -5665,7 +5990,7 @@ class Bot(FeatureUI):
 
     def menu(self, user):
         buttons = [[START, RESUME], [LEARNING, LISTS], [DUE, PROGRESS], [TOPICS, EXAM],
-                   [MISTAKES, PRACTICE], [STATS, REMINDERS], [AGAIN, STOP], [BACK]]
+                   [MISTAKES, PRACTICE], [STATS, REMINDERS], [AGAIN, STOP], [LATIN], [BACK]]
         if self.authorized_admin(user):
             buttons.append([ADMIN])
             buttons.append([REPORTS])
@@ -5877,10 +6202,12 @@ class Bot(FeatureUI):
             await self.say(update, "Откройте личный чат с ботом и нажмите /start.")
             return
         self.store.touch(update.effective_user)
+        self.latin.invalidate(update.effective_user.id)
         self.learning.cancel_prompt(update.effective_user.id)
         self.features.clear_intake(update.effective_user.id)
         await self.say(update,
-            "Анатомия человека · вопросы по странице 151 включительно.\n\n"
+            "Остеология и латынь · 103 вопроса по костям.\n\n"
+            "📖 Латынь — слова, правила, словарные формы и выражения.\n"
             "🎲 Начать — случайные вопросы без повторов в сессии.\n"
             "Выберите вариант или несколько вариантов и нажмите «Проверить».\n"
             "⏹ Стоп — пауза; «Продолжить» вернёт текущий вопрос.\n"
@@ -5902,6 +6229,10 @@ class Bot(FeatureUI):
     async def action(self, update, context, action):
         uid = update.effective_user.id
         state = self.store.state(uid)
+        self.latin.invalidate(uid)
+        if action == LATIN:
+            await self.latin_home(update, context)
+            return
         if await self.feature_action(update, context, action):
             return
         if action == EXAM:
@@ -5986,7 +6317,7 @@ class Bot(FeatureUI):
         self.store.touch(update.effective_user)
         text = update.effective_message.text
         if text in (START, RESUME, AGAIN, STOP, BACK, MISTAKES, PRACTICE, STATS, ADMIN, LEARNING,
-                    EXAM, DUE, PROGRESS, TOPICS, LISTS, REMINDERS, REPORTS):
+                    EXAM, DUE, PROGRESS, TOPICS, LISTS, REMINDERS, REPORTS, LATIN):
             self.learning.cancel_prompt(update.effective_user.id)
             self.features.clear_intake(update.effective_user.id)
             await self.action(update, context, text)
@@ -6008,7 +6339,7 @@ class Bot(FeatureUI):
         actions = {"/quiz": START, "/again": AGAIN, "/stop": STOP, "/back": BACK,
                    "/mistakes": MISTAKES, "/stats": STATS, "/admin": ADMIN, "/resume": RESUME, "/learn": LEARNING,
                    "/lists": LISTS, "/due": DUE, "/progress": PROGRESS, "/topics": TOPICS,
-                   "/exam": EXAM, "/reminders": REMINDERS, "/reports": REPORTS}
+                   "/exam": EXAM, "/reminders": REMINDERS, "/reports": REPORTS, "/latin": LATIN}
         self.learning.cancel_prompt(update.effective_user.id)
         self.features.clear_intake(update.effective_user.id)
         await self.action(update, context, actions[command])
@@ -6320,6 +6651,10 @@ class Bot(FeatureUI):
         self.store.touch(update.effective_user)
         parts = (query.data or "").split(":")
         action = parts[0]
+        if action == "lt":
+            await self.latin_callback(update, context, parts)
+            return
+        self.latin.invalidate(update.effective_user.id)
         if action.startswith("admin_") and not self.authorized_admin(update.effective_user):
             await query.answer("Только для администратора.", show_alert=True)
             return
@@ -6413,6 +6748,8 @@ def main():
     active = sum(q.get("enabled", True) for q in bank.values())
     print(f"База: {len(bank)} заданий; доступно {active}; отключено {len(bank)-active}.")
     if args.check:
+        latin_cards = load_latin_cards()
+        print(f"Латынь: {len(latin_cards)} карточки: слова, крылатые и медицинские выражения.")
         for question in bank.values():
             if question.get("enabled", True):
                 dummy = {"current": question["id"], "mode": "all", "seen": [question["id"]],
@@ -6458,7 +6795,7 @@ def main():
     async def startup(application):
         me = await application.bot.get_me()
         await application.bot.set_my_commands([
-            BotCommand("start", "Главное меню"), BotCommand("learn", "Заучивание"),
+            BotCommand("latin", "Латынь: карточки и выражения"), BotCommand("start", "Главное меню"), BotCommand("learn", "Заучивание"),
             BotCommand("lists", "Мои списки"), BotCommand("due", "Повторить сегодня"),
             BotCommand("progress", "Прогресс обучения"), BotCommand("topics", "Темы анатомии"),
             BotCommand("exam", "Экзамен"), BotCommand("reminders", "Напоминания по желанию"),
@@ -6473,7 +6810,7 @@ def main():
                    .post_init(startup).post_stop(stopped).post_shutdown(shutdown).build())
     application.add_handler(CommandHandler(["start", "help"], bot.start))
     application.add_handler(CommandHandler(["quiz", "again", "stop", "back", "mistakes", "stats", "admin", "resume", "id", "learn",
-        "lists", "due", "progress", "topics", "exam", "reminders", "reports"], bot.command))
+        "lists", "due", "progress", "topics", "exam", "reminders", "reports", "latin"], bot.command))
     application.add_handler(CallbackQueryHandler(bot.callback))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, bot.message))
     application.add_error_handler(bot.error)

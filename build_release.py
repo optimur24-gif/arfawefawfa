@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-MODULES = ("answer_helpers", "features", "feature_ui")
+MODULES = ("answer_helpers", "features", "feature_ui", "latin_cards", "latin_ui")
 
 
 def without_imports(source, modules):
@@ -23,7 +23,7 @@ def build():
     marker = 'BASE_DIR = Path(__file__).resolve().parent'
     before, after = bot.split(marker, 1)
     bundled = "\n\n".join(
-        without_imports((ROOT / f"{name}.py").read_text(encoding="utf-8"), {"__future__"})
+        without_imports((ROOT / f"{name}.py").read_text(encoding="utf-8"), {"__future__", *MODULES})
         for name in MODULES)
     standalone = before + "\n# Bundled source modules\n" + bundled + "\n\n" + marker + after
     raw = (ROOT / "questions.txt").read_text(encoding="utf-8")
@@ -31,12 +31,14 @@ def build():
         raise ValueError("Use another quote style for the embedded JSON")
     standalone = standalone.replace('EMBEDDED_QUESTIONS_JSON = None  # EMBED_DATABASE_HERE',
                                     "EMBEDDED_QUESTIONS_JSON = r'''" + raw + "'''")
+    latin_raw = (ROOT / "latin_data.json").read_text(encoding="utf-8")
+    standalone = standalone.replace("EMBEDDED_LATIN_JSON = None  # EMBED_LATIN_HERE", "EMBEDDED_LATIN_JSON = " + repr(latin_raw))
     compile(standalone, "bot_single.py", "exec")
     (ROOT / "bot_single.py").write_text(standalone, encoding="utf-8")
     files = ["bot.py", "bot_single.py", "questions.txt", "requirements.txt", ".env.example",
              ".gitignore", "README.txt", "SOURCE_NOTES.txt", "extract_questions.py",
              "topic_review.json", "Dockerfile", ".dockerignore", "run_cloud.sh", "build_release.py"]
-    files += ["README.md", "compose.yaml", ".github/workflows/check.yml", ".github/workflows/run-bot.yml"]
+    files += ["latin_data.json", "INSTALL_LATIN.txt", "README.md", "compose.yaml", ".github/workflows/check.yml", ".github/workflows/run-bot.yml"]
     files += [f"{name}.py" for name in MODULES]
     files += sorted(path.name for path in ROOT.glob("test_*.py"))
     token_pattern = re.compile(rb"\b\d{8,12}:[A-Za-z0-9_-]{35}\b")

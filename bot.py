@@ -20,6 +20,9 @@ from telegram import BotCommand, InlineKeyboardButton, InlineKeyboardMarkup, Rep
 from telegram.error import BadRequest, TelegramError
 from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes, MessageHandler, filters
 
+from latin_cards import LATIN, LatinStore, load_latin_cards
+from latin_ui import LatinUI
+
 from answer_helpers import (answer_options, source_option_lines, selected_letters,
                             is_correct_selection, correct_answer_lines, breakdown_lines)
 from features import FeatureStore
@@ -546,10 +549,11 @@ def question_view(bank, state):
     return "\n".join(lines), InlineKeyboardMarkup(buttons)
 
 
-class Bot(FeatureUI):
+class Bot(FeatureUI, LatinUI):
     def __init__(self, store, bank, admin_id=None):
         self.store, self.bank, self.admin_id = store, bank, admin_id
         self.quiz = Quiz(store, bank)
+        self.latin = LatinStore(store)
         self.features = FeatureStore(store, bank, self.quiz.canonical)
         self.store.features = self.features
         self.learning = Learning(store, self.quiz)
@@ -566,7 +570,7 @@ class Bot(FeatureUI):
 
     def menu(self, user):
         buttons = [[START, RESUME], [LEARNING, LISTS], [DUE, PROGRESS], [TOPICS, EXAM],
-                   [MISTAKES, PRACTICE], [STATS, REMINDERS], [AGAIN, STOP], [BACK]]
+                   [MISTAKES, PRACTICE], [STATS, REMINDERS], [AGAIN, STOP], [LATIN], [BACK]]
         if self.authorized_admin(user):
             buttons.append([ADMIN])
             buttons.append([REPORTS])
@@ -778,10 +782,12 @@ class Bot(FeatureUI):
             await self.say(update, "Откройте личный чат с ботом и нажмите /start.")
             return
         self.store.touch(update.effective_user)
+        self.latin.invalidate(update.effective_user.id)
         self.learning.cancel_prompt(update.effective_user.id)
         self.features.clear_intake(update.effective_user.id)
         await self.say(update,
-            "Анатомия человека · вопросы по странице 151 включительно.\n\n"
+            "Остеология и латынь · 103 вопроса по костям.\n\n"
+            "📖 Латынь — слова, правила, словарные формы и выражения.\n"
             "🎲 Начать — случайные вопросы без повторов в сессии.\n"
             "Выберите вариант или несколько вариантов и нажмите «Проверить».\n"
             "⏹ Стоп — пауза; «Продолжить» вернёт текущий вопрос.\n"
@@ -803,6 +809,10 @@ class Bot(FeatureUI):
     async def action(self, update, context, action):
         uid = update.effective_user.id
         state = self.store.state(uid)
+        self.latin.invalidate(uid)
+        if action == LATIN:
+            await self.latin_home(update, context)
+            return
         if await self.feature_action(update, context, action):
             return
         if action == EXAM:
@@ -887,7 +897,7 @@ class Bot(FeatureUI):
         self.store.touch(update.effective_user)
         text = update.effective_message.text
         if text in (START, RESUME, AGAIN, STOP, BACK, MISTAKES, PRACTICE, STATS, ADMIN, LEARNING,
-                    EXAM, DUE, PROGRESS, TOPICS, LISTS, REMINDERS, REPORTS):
+                    EXAM, DUE, PROGRESS, TOPICS, LISTS, REMINDERS, REPORTS, LATIN):
             self.learning.cancel_prompt(update.effective_user.id)
             self.features.clear_intake(update.effective_user.id)
             await self.action(update, context, text)
@@ -909,7 +919,7 @@ class Bot(FeatureUI):
         actions = {"/quiz": START, "/again": AGAIN, "/stop": STOP, "/back": BACK,
                    "/mistakes": MISTAKES, "/stats": STATS, "/admin": ADMIN, "/resume": RESUME, "/learn": LEARNING,
                    "/lists": LISTS, "/due": DUE, "/progress": PROGRESS, "/topics": TOPICS,
-                   "/exam": EXAM, "/reminders": REMINDERS, "/reports": REPORTS}
+                   "/exam": EXAM, "/reminders": REMINDERS, "/reports": REPORTS, "/latin": LATIN}
         self.learning.cancel_prompt(update.effective_user.id)
         self.features.clear_intake(update.effective_user.id)
         await self.action(update, context, actions[command])
@@ -1221,6 +1231,10 @@ class Bot(FeatureUI):
         self.store.touch(update.effective_user)
         parts = (query.data or "").split(":")
         action = parts[0]
+        if action == "lt":
+            await self.latin_callback(update, context, parts)
+            return
+        self.latin.invalidate(update.effective_user.id)
         if action.startswith("admin_") and not self.authorized_admin(update.effective_user):
             await query.answer("Только для администратора.", show_alert=True)
             return
@@ -1314,6 +1328,8 @@ def main():
     active = sum(q.get("enabled", True) for q in bank.values())
     print(f"База: {len(bank)} заданий; доступно {active}; отключено {len(bank)-active}.")
     if args.check:
+        latin_cards = load_latin_cards()
+        print(f"Латынь: {len(latin_cards)} карточки: слова, крылатые и медицинские выражения.")
         for question in bank.values():
             if question.get("enabled", True):
                 dummy = {"current": question["id"], "mode": "all", "seen": [question["id"]],
@@ -1359,7 +1375,7 @@ def main():
     async def startup(application):
         me = await application.bot.get_me()
         await application.bot.set_my_commands([
-            BotCommand("start", "Главное меню"), BotCommand("learn", "Заучивание"),
+            BotCommand("latin", "Латынь: карточки и выражения"), BotCommand("start", "Главное меню"), BotCommand("learn", "Заучивание"),
             BotCommand("lists", "Мои списки"), BotCommand("due", "Повторить сегодня"),
             BotCommand("progress", "Прогресс обучения"), BotCommand("topics", "Темы анатомии"),
             BotCommand("exam", "Экзамен"), BotCommand("reminders", "Напоминания по желанию"),
@@ -1374,7 +1390,7 @@ def main():
                    .post_init(startup).post_stop(stopped).post_shutdown(shutdown).build())
     application.add_handler(CommandHandler(["start", "help"], bot.start))
     application.add_handler(CommandHandler(["quiz", "again", "stop", "back", "mistakes", "stats", "admin", "resume", "id", "learn",
-        "lists", "due", "progress", "topics", "exam", "reminders", "reports"], bot.command))
+        "lists", "due", "progress", "topics", "exam", "reminders", "reports", "latin"], bot.command))
     application.add_handler(CallbackQueryHandler(bot.callback))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, bot.message))
     application.add_error_handler(bot.error)

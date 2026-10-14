@@ -6,3 +6,6 @@
 !features.py
 !feature_ui.py
 !questions.txt
+!latin_cards.py
+!latin_ui.py
+!latin_data.json

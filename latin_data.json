@@ -1,0 +1,1080 @@
+{
+  "version": 1,
+  "sources": {
+    "words": "Latin_kartochki_A4-2.pdf: 57 карточек",
+    "sayings": "Фото 1000006323.jpg: 30 крылатых выражений",
+    "medical": "Фото 1000006323.jpg: 17 отдельных медицинских выражений"
+  },
+  "cards": [
+    {
+      "id": "word_01",
+      "collection": "words",
+      "latin": "ala",
+      "translation": "крыло",
+      "genitive": "alae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "ala, alae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 1
+    },
+    {
+      "id": "word_02",
+      "collection": "words",
+      "latin": "angulus",
+      "translation": "угол",
+      "genitive": "anguli",
+      "genitive_ending": "-i",
+      "gender": "m",
+      "declension": "II",
+      "formula": "angulus, anguli m",
+      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",
+      "source_number": 2
+    },
+    {
+      "id": "word_03",
+      "collection": "words",
+      "latin": "aorta",
+      "translation": "аорта",
+      "genitive": "aortae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "aorta, aortae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 3
+    },
+    {
+      "id": "word_04",
+      "collection": "words",
+      "latin": "arcus",
+      "translation": "дуга",
+      "genitive": "arcus",
+      "genitive_ending": "-us",
+      "gender": "m",
+      "declension": "IV",
+      "formula": "arcus, arcus m",
+      "rule": "-us, Gen. -us: обычно m. Исключение: manus, us f (кисть). Не путай с -us, -i и -us, -oris.",
+      "source_number": 4
+    },
+    {
+      "id": "word_05",
+      "collection": "words",
+      "latin": "arteria",
+      "translation": "артерия",
+      "genitive": "arteriae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "arteria, arteriae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 5
+    },
+    {
+      "id": "word_06",
+      "collection": "words",
+      "latin": "brachium",
+      "translation": "плечо",
+      "genitive": "brachii",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "brachium, brachii n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 6
+    },
+    {
+      "id": "word_07",
+      "collection": "words",
+      "latin": "caput",
+      "translation": "голова, головка",
+      "genitive": "capitis",
+      "genitive_ending": "-is",
+      "gender": "n",
+      "declension": "III",
+      "formula": "caput, capitis n",
+      "rule": "Запомни: caput → capit-is, n. По одному -ut надёжно род не определить.",
+      "source_number": 7
+    },
+    {
+      "id": "word_08",
+      "collection": "words",
+      "latin": "cavitas",
+      "translation": "полость",
+      "genitive": "cavitatis",
+      "genitive_ending": "-is",
+      "gender": "f",
+      "declension": "III",
+      "formula": "cavitas, cavitatis f",
+      "rule": "-tas, Gen. -tatis: обычно f. Основа меняется: cavitas → cavitat-is. Gen. -is само по себе род не определяет.",
+      "source_number": 8
+    },
+    {
+      "id": "word_09",
+      "collection": "words",
+      "latin": "concha",
+      "translation": "раковина",
+      "genitive": "conchae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "concha, conchae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 9
+    },
+    {
+      "id": "word_10",
+      "collection": "words",
+      "latin": "costa",
+      "translation": "ребро",
+      "genitive": "costae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "costa, costae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 10
+    },
+    {
+      "id": "word_11",
+      "collection": "words",
+      "latin": "cornu",
+      "translation": "рог",
+      "genitive": "cornus",
+      "genitive_ending": "-us",
+      "gender": "n",
+      "declension": "IV",
+      "formula": "cornu, cornus n",
+      "rule": "-u, Gen. -us: n (cornu, genu). Это правило IV склонения; -us здесь окончание Gen.",
+      "source_number": 11
+    },
+    {
+      "id": "word_12",
+      "collection": "words",
+      "latin": "corpus",
+      "translation": "тело",
+      "genitive": "corporis",
+      "genitive_ending": "-is",
+      "gender": "n",
+      "declension": "III",
+      "formula": "corpus, corporis n",
+      "rule": "-us, Gen. -oris: n (corpus → corpor-is). Не путай с -us, -i m и -us, -us m.",
+      "source_number": 12
+    },
+    {
+      "id": "word_13",
+      "collection": "words",
+      "latin": "cranium",
+      "translation": "череп",
+      "genitive": "cranii",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "cranium, cranii n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 13
+    },
+    {
+      "id": "word_14",
+      "collection": "words",
+      "latin": "crista",
+      "translation": "гребень",
+      "genitive": "cristae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "crista, cristae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 14
+    },
+    {
+      "id": "word_15",
+      "collection": "words",
+      "latin": "ductus",
+      "translation": "проток",
+      "genitive": "ductus",
+      "genitive_ending": "-us",
+      "gender": "m",
+      "declension": "IV",
+      "formula": "ductus, ductus m",
+      "rule": "-us, Gen. -us: обычно m. Исключение: manus, us f (кисть). Не путай с -us, -i и -us, -oris.",
+      "source_number": 15
+    },
+    {
+      "id": "word_16",
+      "collection": "words",
+      "latin": "incisura",
+      "translation": "вырезка",
+      "genitive": "incisurae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "incisura, incisurae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 16
+    },
+    {
+      "id": "word_17",
+      "collection": "words",
+      "latin": "lamina",
+      "translation": "пластинка",
+      "genitive": "laminae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "lamina, laminae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 17
+    },
+    {
+      "id": "word_18",
+      "collection": "words",
+      "latin": "ligamentum",
+      "translation": "связка",
+      "genitive": "ligamenti",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "ligamentum, ligamenti n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 18
+    },
+    {
+      "id": "word_19",
+      "collection": "words",
+      "latin": "linea",
+      "translation": "линия",
+      "genitive": "lineae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "linea, lineae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 19
+    },
+    {
+      "id": "word_20",
+      "collection": "words",
+      "latin": "lingua",
+      "translation": "язык",
+      "genitive": "linguae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "lingua, linguae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 20
+    },
+    {
+      "id": "word_21",
+      "collection": "words",
+      "latin": "mandibula",
+      "translation": "нижняя челюсть",
+      "genitive": "mandibulae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "mandibula, mandibulae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 21
+    },
+    {
+      "id": "word_22",
+      "collection": "words",
+      "latin": "maxilla",
+      "translation": "верхняя челюсть",
+      "genitive": "maxillae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "maxilla, maxillae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 22
+    },
+    {
+      "id": "word_23",
+      "collection": "words",
+      "latin": "meatus",
+      "translation": "проход, ход",
+      "genitive": "meatus",
+      "genitive_ending": "-us",
+      "gender": "m",
+      "declension": "IV",
+      "formula": "meatus, meatus m",
+      "rule": "-us, Gen. -us: обычно m. Исключение: manus, us f (кисть). Не путай с -us, -i и -us, -oris.",
+      "source_number": 23
+    },
+    {
+      "id": "word_24",
+      "collection": "words",
+      "latin": "musculus",
+      "translation": "мышца",
+      "genitive": "musculi",
+      "genitive_ending": "-i",
+      "gender": "m",
+      "declension": "II",
+      "formula": "musculus, musculi m",
+      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",
+      "source_number": 24
+    },
+    {
+      "id": "word_25",
+      "collection": "words",
+      "latin": "orbita",
+      "translation": "глазница",
+      "genitive": "orbitae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "orbita, orbitae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 25
+    },
+    {
+      "id": "word_26",
+      "collection": "words",
+      "latin": "os",
+      "translation": "кость",
+      "genitive": "ossis",
+      "genitive_ending": "-is",
+      "gender": "n",
+      "declension": "III",
+      "formula": "os, ossis n",
+      "rule": "Запомни: os → oss-is, n (кость). Не путай: os, oris n = рот.",
+      "source_number": 26
+    },
+    {
+      "id": "word_27",
+      "collection": "words",
+      "latin": "raphe",
+      "translation": "шов (место сращения мягких тканей, сухожилий, мышц)",
+      "genitive": "raphes",
+      "genitive_ending": "-es",
+      "gender": "f",
+      "declension": "I (греч.)",
+      "formula": "raphe, raphes f",
+      "rule": "Греческое -e, Gen. -es: здесь f. Особую форму raphe → raphes запомни.",
+      "source_number": 27
+    },
+    {
+      "id": "word_28",
+      "collection": "words",
+      "latin": "scapula",
+      "translation": "лопатка",
+      "genitive": "scapulae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "scapula, scapulae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 28
+    },
+    {
+      "id": "word_29",
+      "collection": "words",
+      "latin": "septum",
+      "translation": "перегородка",
+      "genitive": "septi",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "septum, septi n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 29
+    },
+    {
+      "id": "word_30",
+      "collection": "words",
+      "latin": "spina",
+      "translation": "ость",
+      "genitive": "spinae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "spina, spinae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 30
+    },
+    {
+      "id": "word_31",
+      "collection": "words",
+      "latin": "sulcus",
+      "translation": "борозда",
+      "genitive": "sulci",
+      "genitive_ending": "-i",
+      "gender": "m",
+      "declension": "II",
+      "formula": "sulcus, sulci m",
+      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",
+      "source_number": 31
+    },
+    {
+      "id": "word_32",
+      "collection": "words",
+      "latin": "tympanum",
+      "translation": "барабан",
+      "genitive": "tympani",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "tympanum, tympani n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 32
+    },
+    {
+      "id": "word_33",
+      "collection": "words",
+      "latin": "ulna",
+      "translation": "локтевая кость",
+      "genitive": "ulnae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "ulna, ulnae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 33
+    },
+    {
+      "id": "word_34",
+      "collection": "words",
+      "latin": "vena",
+      "translation": "вена",
+      "genitive": "venae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "vena, venae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 34
+    },
+    {
+      "id": "word_35",
+      "collection": "words",
+      "latin": "vertebra",
+      "translation": "позвонок",
+      "genitive": "vertebrae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "vertebra, vertebrae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 35
+    },
+    {
+      "id": "word_36",
+      "collection": "words",
+      "latin": "calcaneus",
+      "translation": "пяточная кость",
+      "genitive": "calcanei",
+      "genitive_ending": "-i",
+      "gender": "m",
+      "declension": "II",
+      "formula": "calcaneus, calcanei m",
+      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",
+      "source_number": 36
+    },
+    {
+      "id": "word_37",
+      "collection": "words",
+      "latin": "crus",
+      "translation": "ножка, голень",
+      "genitive": "cruris",
+      "genitive_ending": "-is",
+      "gender": "n",
+      "declension": "III",
+      "formula": "crus, cruris n",
+      "rule": "Запомни: crus → crur-is, n. Окончание -us не всегда означает мужской род.",
+      "source_number": 37
+    },
+    {
+      "id": "word_38",
+      "collection": "words",
+      "latin": "digitus",
+      "translation": "палец",
+      "genitive": "digiti",
+      "genitive_ending": "-i",
+      "gender": "m",
+      "declension": "II",
+      "formula": "digitus, digiti m",
+      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",
+      "source_number": 38
+    },
+    {
+      "id": "word_39",
+      "collection": "words",
+      "latin": "genu",
+      "translation": "колено",
+      "genitive": "genus",
+      "genitive_ending": "-us",
+      "gender": "n",
+      "declension": "IV",
+      "formula": "genu, genus n",
+      "rule": "-u, Gen. -us: n (cornu, genu). Это правило IV склонения; -us здесь окончание Gen.",
+      "source_number": 39
+    },
+    {
+      "id": "word_40",
+      "collection": "words",
+      "latin": "humerus",
+      "translation": "плечевая кость",
+      "genitive": "humeri",
+      "genitive_ending": "-i",
+      "gender": "m",
+      "declension": "II",
+      "formula": "humerus, humeri m",
+      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",
+      "source_number": 40
+    },
+    {
+      "id": "word_41",
+      "collection": "words",
+      "latin": "manubrium",
+      "translation": "рукоятка",
+      "genitive": "manubrii",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "manubrium, manubrii n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 41
+    },
+    {
+      "id": "word_42",
+      "collection": "words",
+      "latin": "patella",
+      "translation": "надколенник",
+      "genitive": "patellae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "patella, patellae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 42
+    },
+    {
+      "id": "word_43",
+      "collection": "words",
+      "latin": "radius",
+      "translation": "лучевая кость",
+      "genitive": "radii",
+      "genitive_ending": "-i",
+      "gender": "m",
+      "declension": "II",
+      "formula": "radius, radii m",
+      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",
+      "source_number": 43
+    },
+    {
+      "id": "word_44",
+      "collection": "words",
+      "latin": "sternum",
+      "translation": "грудина",
+      "genitive": "sterni",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "sternum, sterni n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 44
+    },
+    {
+      "id": "word_45",
+      "collection": "words",
+      "latin": "sutura",
+      "translation": "шов (костный)",
+      "genitive": "suturae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "sutura, suturae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 45
+    },
+    {
+      "id": "word_46",
+      "collection": "words",
+      "latin": "tuba",
+      "translation": "труба",
+      "genitive": "tubae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "tuba, tubae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 46
+    },
+    {
+      "id": "word_47",
+      "collection": "words",
+      "latin": "alveolus",
+      "translation": "альвеола",
+      "genitive": "alveoli",
+      "genitive_ending": "-i",
+      "gender": "m",
+      "declension": "II",
+      "formula": "alveolus, alveoli m",
+      "rule": "-us, Gen. -i: обычно m. Исключения: humus, i f (почва); virus, i n (яд, вирус).",
+      "source_number": 47
+    },
+    {
+      "id": "word_48",
+      "collection": "words",
+      "latin": "bucca",
+      "translation": "щека",
+      "genitive": "buccae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "bucca, buccae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 48
+    },
+    {
+      "id": "word_49",
+      "collection": "words",
+      "latin": "enamelum",
+      "translation": "зубная эмаль",
+      "genitive": "enameli",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "enamelum, enameli n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 49
+    },
+    {
+      "id": "word_50",
+      "collection": "words",
+      "latin": "frenulum",
+      "translation": "уздечка",
+      "genitive": "frenuli",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "frenulum, frenuli n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 50
+    },
+    {
+      "id": "word_51",
+      "collection": "words",
+      "latin": "gingiva",
+      "translation": "десна",
+      "genitive": "gingivae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "gingiva, gingivae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 51
+    },
+    {
+      "id": "word_52",
+      "collection": "words",
+      "latin": "jugum",
+      "translation": "возвышение",
+      "genitive": "jugi",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "jugum, jugi n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 52
+    },
+    {
+      "id": "word_53",
+      "collection": "words",
+      "latin": "labium",
+      "translation": "губа",
+      "genitive": "labii",
+      "genitive_ending": "-i",
+      "gender": "n",
+      "declension": "II",
+      "formula": "labium, labii n",
+      "rule": "-um, Gen. -i: n. Род определяется по латинскому слову, а не по русскому переводу.",
+      "source_number": 53
+    },
+    {
+      "id": "word_54",
+      "collection": "words",
+      "latin": "lingula",
+      "translation": "язычок",
+      "genitive": "lingulae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "lingula, lingulae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 54
+    },
+    {
+      "id": "word_55",
+      "collection": "words",
+      "latin": "papilla",
+      "translation": "сосочек",
+      "genitive": "papillae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "papilla, papillae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 55
+    },
+    {
+      "id": "word_56",
+      "collection": "words",
+      "latin": "protuberantia",
+      "translation": "выступ",
+      "genitive": "protuberantiae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "protuberantia, protuberantiae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 56
+    },
+    {
+      "id": "word_57",
+      "collection": "words",
+      "latin": "pulpa",
+      "translation": "пульпа, мякоть",
+      "genitive": "pulpae",
+      "genitive_ending": "-ae",
+      "gender": "f",
+      "declension": "I",
+      "formula": "pulpa, pulpae f",
+      "rule": "-a, Gen. -ae: обычно f. Исключения: poeta, ae m (поэт); nauta, ae m (моряк).",
+      "source_number": 57
+    },
+    {
+      "id": "sayings_01",
+      "collection": "sayings",
+      "latin": "Alma mater",
+      "translation": "Мать-кормилица (об университете)",
+      "source_number": 1
+    },
+    {
+      "id": "sayings_02",
+      "collection": "sayings",
+      "latin": "Cognosce te ipsum",
+      "translation": "Познай самого себя",
+      "source_number": 2
+    },
+    {
+      "id": "sayings_03",
+      "collection": "sayings",
+      "latin": "Carpe diem",
+      "translation": "Живи сейчас",
+      "source_number": 3
+    },
+    {
+      "id": "sayings_04",
+      "collection": "sayings",
+      "latin": "Nota bene (NB)",
+      "translation": "Обрати внимание, запомни хорошо",
+      "source_number": 4
+    },
+    {
+      "id": "sayings_05",
+      "collection": "sayings",
+      "latin": "Alter ego",
+      "translation": "Второе я",
+      "source_number": 5
+    },
+    {
+      "id": "sayings_06",
+      "collection": "sayings",
+      "latin": "Cogito, ergo sum",
+      "translation": "Я мыслю, следовательно, существую",
+      "source_number": 6
+    },
+    {
+      "id": "sayings_07",
+      "collection": "sayings",
+      "latin": "Tabula rasa",
+      "translation": "Чистая доска",
+      "source_number": 7
+    },
+    {
+      "id": "sayings_08",
+      "collection": "sayings",
+      "latin": "Post scriptum (P.S.)",
+      "translation": "После написанного",
+      "source_number": 8
+    },
+    {
+      "id": "sayings_09",
+      "collection": "sayings",
+      "latin": "Ignorantia non est argumentum",
+      "translation": "Невежество не аргумент",
+      "source_number": 9
+    },
+    {
+      "id": "sayings_10",
+      "collection": "sayings",
+      "latin": "Errare humanum est",
+      "translation": "Человеку свойственно ошибаться",
+      "source_number": 10
+    },
+    {
+      "id": "sayings_11",
+      "collection": "sayings",
+      "latin": "Volens - nolens",
+      "translation": "Волей-неволей",
+      "source_number": 11
+    },
+    {
+      "id": "sayings_12",
+      "collection": "sayings",
+      "latin": "Omne nimium nocet",
+      "translation": "Всякое излишество вредно",
+      "source_number": 12
+    },
+    {
+      "id": "sayings_13",
+      "collection": "sayings",
+      "latin": "Per aspera ad astra",
+      "translation": "Через тернии к звездам",
+      "source_number": 13
+    },
+    {
+      "id": "sayings_14",
+      "collection": "sayings",
+      "latin": "Sapienti sat",
+      "translation": "Разумному достаточно",
+      "source_number": 14
+    },
+    {
+      "id": "sayings_15",
+      "collection": "sayings",
+      "latin": "Qualis vita, finis ita",
+      "translation": "Какова жизнь, таков и конец",
+      "source_number": 15
+    },
+    {
+      "id": "sayings_16",
+      "collection": "sayings",
+      "latin": "Veni, vidi, vici",
+      "translation": "Пришел, увидел, победил",
+      "source_number": 16
+    },
+    {
+      "id": "sayings_17",
+      "collection": "sayings",
+      "latin": "Ubi concordia, ibi victoria",
+      "translation": "Где согласие, там победа",
+      "source_number": 17
+    },
+    {
+      "id": "sayings_18",
+      "collection": "sayings",
+      "latin": "Consuetudo est altera natura",
+      "translation": "Привычка — вторая натура",
+      "source_number": 18
+    },
+    {
+      "id": "sayings_19",
+      "collection": "sayings",
+      "latin": "Fiat lux",
+      "translation": "Да будет свет",
+      "source_number": 19
+    },
+    {
+      "id": "sayings_20",
+      "collection": "sayings",
+      "latin": "Mea culpa",
+      "translation": "Моя вина",
+      "source_number": 20
+    },
+    {
+      "id": "sayings_21",
+      "collection": "sayings",
+      "latin": "Aut bene, aut nihil",
+      "translation": "Или хорошо, или ничего",
+      "source_number": 21
+    },
+    {
+      "id": "sayings_22",
+      "collection": "sayings",
+      "latin": "Repetitio est mater studiorum",
+      "translation": "Повторение — мать учения",
+      "source_number": 22
+    },
+    {
+      "id": "sayings_23",
+      "collection": "sayings",
+      "latin": "O tempora, o mores!",
+      "translation": "О времена, о нравы!",
+      "source_number": 23
+    },
+    {
+      "id": "sayings_24",
+      "collection": "sayings",
+      "latin": "De facto, de jure",
+      "translation": "Фактически, юридически",
+      "source_number": 24
+    },
+    {
+      "id": "sayings_25",
+      "collection": "sayings",
+      "latin": "Terra incognita",
+      "translation": "Неизвестная земля",
+      "source_number": 25
+    },
+    {
+      "id": "sayings_26",
+      "collection": "sayings",
+      "latin": "Memento mori",
+      "translation": "Помни о смерти",
+      "source_number": 26
+    },
+    {
+      "id": "sayings_27",
+      "collection": "sayings",
+      "latin": "Dura lex, sed lex",
+      "translation": "Закон суров, но это закон",
+      "source_number": 27
+    },
+    {
+      "id": "sayings_28",
+      "collection": "sayings",
+      "latin": "Aliis inserviendo consumor",
+      "translation": "Светя другим, сгораю сам",
+      "source_number": 28
+    },
+    {
+      "id": "sayings_29",
+      "collection": "sayings",
+      "latin": "Noli nocere",
+      "translation": "Не навреди",
+      "source_number": 29
+    },
+    {
+      "id": "sayings_30",
+      "collection": "sayings",
+      "latin": "Invia est in medicina via sine lingua latina",
+      "translation": "Непроходим в медицине путь без латинского языка",
+      "source_number": 30
+    },
+    {
+      "id": "medical_01",
+      "collection": "medical",
+      "latin": "Casus ordinarius",
+      "translation": "Обычный случай",
+      "source_number": 1
+    },
+    {
+      "id": "medical_02",
+      "collection": "medical",
+      "latin": "Casus extraordinarius",
+      "translation": "Необычный случай",
+      "source_number": 2
+    },
+    {
+      "id": "medical_03",
+      "collection": "medical",
+      "latin": "Sedes morbi",
+      "translation": "Место болезни",
+      "source_number": 3
+    },
+    {
+      "id": "medical_04",
+      "collection": "medical",
+      "latin": "Exitus letalis",
+      "translation": "Смертельный исход",
+      "source_number": 4
+    },
+    {
+      "id": "medical_05",
+      "collection": "medical",
+      "latin": "Anamnesis vitae",
+      "translation": "Сведения о жизни",
+      "source_number": 5
+    },
+    {
+      "id": "medical_06",
+      "collection": "medical",
+      "latin": "Anamnesis morbi",
+      "translation": "Сведения о болезни",
+      "source_number": 6
+    },
+    {
+      "id": "medical_07",
+      "collection": "medical",
+      "latin": "Habitus aegroti",
+      "translation": "Общее состояние больного",
+      "source_number": 7
+    },
+    {
+      "id": "medical_08",
+      "collection": "medical",
+      "latin": "Status praesens",
+      "translation": "Настоящее состояние (состояние в момент обследования)",
+      "source_number": 8
+    },
+    {
+      "id": "medical_09",
+      "collection": "medical",
+      "latin": "Praesente medico",
+      "translation": "В присутствии врача",
+      "source_number": 9
+    },
+    {
+      "id": "medical_10",
+      "collection": "medical",
+      "latin": "Absente aegroto",
+      "translation": "В отсутствии больного",
+      "source_number": 10
+    },
+    {
+      "id": "medical_11",
+      "collection": "medical",
+      "latin": "Bene diagnoscitur, bene curatur",
+      "translation": "Хорошо распознается, хорошо лечится",
+      "source_number": 11
+    },
+    {
+      "id": "medical_12",
+      "collection": "medical",
+      "latin": "Rubor, tumor, calor, dolor et functio laesa",
+      "translation": "Краснота, опухание, жар, боль и ухудшение функции (пять классических признаков воспаления)",
+      "source_number": 12
+    },
+    {
+      "id": "medical_13",
+      "collection": "medical",
+      "latin": "Facies Hippocratica",
+      "translation": "Гиппократово лицо (лицо умирающего)",
+      "source_number": 13
+    },
+    {
+      "id": "medical_14",
+      "collection": "medical",
+      "latin": "Prognosis bona",
+      "translation": "Прогноз хороший",
+      "source_number": 14
+    },
+    {
+      "id": "medical_15",
+      "collection": "medical",
+      "latin": "Prognosis optima",
+      "translation": "Прогноз очень хороший",
+      "source_number": 15
+    },
+    {
+      "id": "medical_16",
+      "collection": "medical",
+      "latin": "Prognosis mala",
+      "translation": "Прогноз плохой",
+      "source_number": 16
+    },
+    {
+      "id": "medical_17",
+      "collection": "medical",
+      "latin": "Prognosis pessima",
+      "translation": "Прогноз очень плохой",
+      "source_number": 17
+    }
+  ]
+}
