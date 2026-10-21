@@ -20,7 +20,7 @@ from telegram import BotCommand, InlineKeyboardButton, InlineKeyboardMarkup, Rep
 from telegram.error import BadRequest, TelegramError
 from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes, MessageHandler, filters
 
-from latin_cards import LATIN, LatinStore, load_latin_cards
+from latin_cards import LATIN, LATIN43, LatinStore, load_latin_cards
 from latin_ui import LatinUI
 
 from answer_helpers import (answer_options, source_option_lines, selected_letters,
@@ -570,7 +570,7 @@ class Bot(FeatureUI, LatinUI):
 
     def menu(self, user):
         buttons = [[START, RESUME], [LEARNING, LISTS], [DUE, PROGRESS], [TOPICS, EXAM],
-                   [MISTAKES, PRACTICE], [STATS, REMINDERS], [AGAIN, STOP], [LATIN], [BACK]]
+                   [MISTAKES, PRACTICE], [STATS, REMINDERS], [AGAIN, STOP], [LATIN], [LATIN43], [BACK]]
         if self.authorized_admin(user):
             buttons.append([ADMIN])
             buttons.append([REPORTS])
@@ -788,6 +788,7 @@ class Bot(FeatureUI, LatinUI):
         await self.say(update,
             "Остеология и латынь · 103 вопроса по костям.\n\n"
             "📖 Латынь — слова, правила, словарные формы и выражения.\n"
+            "📖 Латынь, 43 параграф — 66 слов, три рода, окончания и правила из PDF.\n"
             "🎲 Начать — случайные вопросы без повторов в сессии.\n"
             "Выберите вариант или несколько вариантов и нажмите «Проверить».\n"
             "⏹ Стоп — пауза; «Продолжить» вернёт текущий вопрос.\n"
@@ -810,6 +811,9 @@ class Bot(FeatureUI, LatinUI):
         uid = update.effective_user.id
         state = self.store.state(uid)
         self.latin.invalidate(uid)
+        if action == LATIN43:
+            await self.latin_collection(update, "paragraph43", False)
+            return
         if action == LATIN:
             await self.latin_home(update, context)
             return
@@ -897,7 +901,7 @@ class Bot(FeatureUI, LatinUI):
         self.store.touch(update.effective_user)
         text = update.effective_message.text
         if text in (START, RESUME, AGAIN, STOP, BACK, MISTAKES, PRACTICE, STATS, ADMIN, LEARNING,
-                    EXAM, DUE, PROGRESS, TOPICS, LISTS, REMINDERS, REPORTS, LATIN):
+                    EXAM, DUE, PROGRESS, TOPICS, LISTS, REMINDERS, REPORTS, LATIN, LATIN43):
             self.learning.cancel_prompt(update.effective_user.id)
             self.features.clear_intake(update.effective_user.id)
             await self.action(update, context, text)
@@ -919,7 +923,7 @@ class Bot(FeatureUI, LatinUI):
         actions = {"/quiz": START, "/again": AGAIN, "/stop": STOP, "/back": BACK,
                    "/mistakes": MISTAKES, "/stats": STATS, "/admin": ADMIN, "/resume": RESUME, "/learn": LEARNING,
                    "/lists": LISTS, "/due": DUE, "/progress": PROGRESS, "/topics": TOPICS,
-                   "/exam": EXAM, "/reminders": REMINDERS, "/reports": REPORTS, "/latin": LATIN}
+                   "/exam": EXAM, "/reminders": REMINDERS, "/reports": REPORTS, "/latin": LATIN, "/latin43": LATIN43}
         self.learning.cancel_prompt(update.effective_user.id)
         self.features.clear_intake(update.effective_user.id)
         await self.action(update, context, actions[command])
@@ -1329,7 +1333,7 @@ def main():
     print(f"База: {len(bank)} заданий; доступно {active}; отключено {len(bank)-active}.")
     if args.check:
         latin_cards = load_latin_cards()
-        print(f"Латынь: {len(latin_cards)} карточки: слова, крылатые и медицинские выражения.")
+        print(f"Латынь: {len(latin_cards)} карточек: слова, выражения и 43 параграф (66 слов).")
         for question in bank.values():
             if question.get("enabled", True):
                 dummy = {"current": question["id"], "mode": "all", "seen": [question["id"]],
@@ -1375,6 +1379,7 @@ def main():
     async def startup(application):
         me = await application.bot.get_me()
         await application.bot.set_my_commands([
+            BotCommand("latin43", "Латынь, 43 параграф: роды и окончания"),
             BotCommand("latin", "Латынь: карточки и выражения"), BotCommand("start", "Главное меню"), BotCommand("learn", "Заучивание"),
             BotCommand("lists", "Мои списки"), BotCommand("due", "Повторить сегодня"),
             BotCommand("progress", "Прогресс обучения"), BotCommand("topics", "Темы анатомии"),
@@ -1383,14 +1388,14 @@ def main():
             BotCommand("again", "Заново"), BotCommand("stop", "Пауза"),
             BotCommand("mistakes", "Мои ошибки"), BotCommand("stats", "Статистика"), BotCommand("id", "Мой ID")])
         application.bot_data["background_task"] = asyncio.create_task(bot.background(application))
-        print(f"Telegram подключён: @{me.username}. Доступны только вопросы по остеологии. Новые функции доступны через /start.", flush=True)
+        print(f"Telegram подключён: @{me.username}. Остеология и латынь, включая 43 параграф. Меню: /start.", flush=True)
 
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
     application = (Application.builder().token(token).concurrent_updates(False)
                    .post_init(startup).post_stop(stopped).post_shutdown(shutdown).build())
     application.add_handler(CommandHandler(["start", "help"], bot.start))
     application.add_handler(CommandHandler(["quiz", "again", "stop", "back", "mistakes", "stats", "admin", "resume", "id", "learn",
-        "lists", "due", "progress", "topics", "exam", "reminders", "reports", "latin"], bot.command))
+        "lists", "due", "progress", "topics", "exam", "reminders", "reports", "latin", "latin43"], bot.command))
     application.add_handler(CallbackQueryHandler(bot.callback))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, bot.message))
     application.add_error_handler(bot.error)

@@ -35,7 +35,7 @@ class LatinPersistenceTests(unittest.TestCase):
 
     def test_sources_and_full_forms_have_expected_counts(self):
         cards=load_latin_cards()
-        self.assertEqual(len(cards),104)
+        self.assertEqual(len(cards),170)
         self.assertEqual({g:sum(c['collection']==g for c in cards.values()) for g in ['words','sayings','medical']}, {'words':57,'sayings':30,'medical':17})
         self.assertEqual(cards['word_07']['formula'],'caput, capitis n')
         self.assertEqual(cards['word_26']['formula'],'os, ossis n')

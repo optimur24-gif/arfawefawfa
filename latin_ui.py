@@ -3,7 +3,7 @@ from __future__ import annotations
 import secrets
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.error import BadRequest
-from latin_cards import LATIN_COLLECTIONS, LATIN_FIELDS, latin_details
+from latin_cards import LATIN_COLLECTIONS, LATIN_FIELDS, LATIN_FORM_FIELDS, latin_details
 
 LATIN_RULES = """📘 Как читать словарную форму
 
@@ -31,6 +31,49 @@ os, oris n — рот, другое слово.
 Латинский род не определяют по русскому переводу.
 
 У каждой словарной карточки есть свое правило и исключения из PDF."""
+
+
+LATIN43_RULES = """📘 Латынь, 43 параграф — роды, формы и окончания
+
+Три рода:
+m — masculinum, мужской;
+f — femininum, женский;
+n — neutrum, средний.
+Род определяют по латинскому словарю, а не по русскому переводу.
+
+Прилагательные 1-й группы:
+m: -us или -er; f: -a; n: -um.
+rectus — recta — rectum.
+У части слов на -er гласная e выпадает:
+dexter — dextra — dextrum;
+sinister — sinistra — sinistrum;
+niger — nigra — nigrum;
+ruber — rubra — rubrum;
+sacer — sacra — sacrum.
+У liber и asper гласная e сохраняется:
+liber — libera — liberum; asper — aspera — asperum.
+
+Прилагательные 2-й группы в этом PDF:
+m и f: -is; n: -e.
+cervicalis — cervicalis — cervicale;
+mollis — mollis — molle.
+Это две разные формы для трёх родов.
+
+Существительные:
+Учить Nom. sg., полный Gen. sg. и род.
+Склонения по Gen. sg.: I — -ae; II — -i; III — -is; IV — -us; V — -ei.
+-a, -ae — обычно f; poeta, nauta — m.
+-us, -i — обычно m; -um, -i — n.
+calcaneus, calcanei m — пяточная кость;
+palatum, palati n — нёбо.
+os, oris n — рот; os, ossis n — кость. Не путай эти слова.
+
+Согласование:
+Прилагательное согласуется с существительным по роду, числу и падежу:
+fibula dextra; palatum molle.
+
+Как учить: прочитай перевод, назови m/f/n либо Nom./Gen. + род, открой карточку и проверь правило.
+Источник: присланный PDF, памятки на страницах 1 и 14."""
 
 
 class LatinUI:
@@ -74,8 +117,26 @@ class LatinUI:
         if group == "words":
             rows += [[("Тест: полная словарная форма", "new:words:test:formula")],
                      [("Тест: Gen. sg.", "new:words:test:genitive"), ("Тест: род", "new:words:test:gender")]]
+        if group == "paragraph43":
+            rows += [[("Тест: полная словарная форма", "new:paragraph43:test:formula")],
+                     [("Тест: мужской род (m)", "new:paragraph43:test:masculine")],
+                     [("Тест: женский род (f)", "new:paragraph43:test:feminine")],
+                     [("Тест: средний род (n)", "new:paragraph43:test:neuter")],
+                     [("Существительные: Gen. sg.", "new:paragraph43:test:genitive")],
+                     [("Существительные: род", "new:paragraph43:test:gender")],
+                     [("📘 Правила: роды и окончания", "rules43")]]
+            session = self.latin.state(update.effective_user.id)["session"]
+            if session and session["collection"] == group and session["index"] < len(session["ids"]):
+                rows.append([("▶️ Продолжить §43", "resume")])
         rows += [[("⬅️ Разделы латыни", "home")]]
-        await self._latin_panel(update, "📖 " + LATIN_COLLECTIONS[group] + "\nВыбери способ изучения.", rows, edit)
+        text = "📖 " + LATIN_COLLECTIONS[group] + "\nВыбери способ изучения."
+        if group == "paragraph43":
+            summary = self.latin.summary(update.effective_user.id, group)
+            text += ("\n\n66 слов из PDF: 44 прилагательных и 22 существительных."
+                     "\nДля прилагательных — три формы (m/f/n), окончания и правила."
+                     "\nДля существительных — полный Gen. sg., род и склонение."
+                     f"\n\nПроверено в §43: {summary['attempts']} · верно: {summary['correct']} · ошибок: {summary['wrong']}")
+        await self._latin_panel(update, text, rows, edit)
 
     async def latin_session(self, update, context, edit=True):
         state = self.latin.state(update.effective_user.id)
@@ -99,8 +160,8 @@ class LatinUI:
             rows += [[("🙈 Скрыть ответ" if s["revealed"] else "👁 Показать ответ", "reveal")],
                      [("◀️ Предыдущая", "prev"), ("Следующая ▶️", "next")]]
         else:
-            prompt = card["translation"] if s["field"] in ("latin", "formula") else card["latin"]
-            text = header + LATIN_FIELDS[s["field"]] + "\n" + prompt
+            prompt = card["translation"] if s["field"] in ("latin", "formula") or s["field"] in LATIN_FORM_FIELDS else card["latin"]
+            text = header + {**LATIN_FIELDS, **LATIN_FORM_FIELDS}[s["field"]] + "\n" + prompt
             if s["answered"]:
                 ok = s["choices"][s["chosen"]] == s["expected"]
                 text += "\n\n" + ("✅ Верно" if ok else "❌ Неверно") + "\nТвой ответ: " + s["choices"][s["chosen"]]
@@ -169,6 +230,8 @@ class LatinUI:
             await self.latin_session(update, context)
         elif action == "rules":
             await self._latin_panel(update, LATIN_RULES, [[("⬅️ Разделы латыни", "home")]], True)
+        elif action == "rules43":
+            await self._latin_panel(update, LATIN43_RULES, [[("⬅️ Латынь, 43 параграф", "set:paragraph43")]], True)
         elif action == "exit":
             self.latin.invalidate(uid)
             await query.edit_message_reply_markup(reply_markup=None)

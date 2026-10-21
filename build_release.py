@@ -36,7 +36,7 @@ def build():
     compile(standalone, "bot_single.py", "exec")
     (ROOT / "bot_single.py").write_text(standalone, encoding="utf-8")
     files = ["bot.py", "bot_single.py", "questions.txt", "requirements.txt", ".env.example",
-             ".gitignore", "README.txt", "SOURCE_NOTES.txt", "extract_questions.py",
+             ".gitignore", "README.txt", "SOURCE_NOTES.txt",
              "topic_review.json", "Dockerfile", ".dockerignore", "run_cloud.sh", "build_release.py"]
     files += ["latin_data.json", "INSTALL_LATIN.txt", "README.md", "compose.yaml", ".github/workflows/check.yml", ".github/workflows/run-bot.yml"]
     files += [f"{name}.py" for name in MODULES]
